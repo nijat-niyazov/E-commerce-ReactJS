@@ -1,0 +1,21 @@
+.second_nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 70px;
+  padding: 0 20px;
+  font-family: Lato, Arial, Helvetica Neue, Helvetica, sans-serif !important;
+  font-weight: 400;
+}
+
+.left {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 600px;
+  padding-right: auto;
+}
+
+.left_el {
+  padding: 14px 19px;
+}
