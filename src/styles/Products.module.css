@@ -2,6 +2,6 @@
   width: 1127px;
   margin: auto;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(4, 25%);
   grid-template-rows: auto;
 }

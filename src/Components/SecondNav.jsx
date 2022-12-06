@@ -11,7 +11,7 @@ function SecondNav() {
           <li className={styles.left_el}>Women</li>
           <li className={styles.left_el}>Men</li>
           <li className={styles.left_el}>Kids</li>
-          <li className={styles.left_el}>Accesories</li>
+          <li className={styles.left_el}>Accessories</li>
           <li className={styles.left_el}>Outlet</li>
         </ul>
       </section>

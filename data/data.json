@@ -21,47 +21,141 @@
   ],
   "products": [
     {
-      "mainImg": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0f/ba/29/5c/img-worlds-of-adventure.jpg?w=1200&h=-1&s=1",
+      "mainImg": "https://meshque.com/cdn/storage/product_images/z4dj2AF6usXxFLMBN/fullHD/z4dj2AF6usXxFLMBN.jpeg",
       "hoverImg": "https://meshque.com/cdn/storage/product_images/yYwpAk2bL95WmCgcL/fullHD/yYwpAk2bL95WmCgcL.jpeg",
       "description": "first product",
-      "price": "63 AZN",
-      "id": 1
+      "price": "63",
+      "id": 1,
+      "colors": [
+        "Green",
+        "Cappucino",
+        "White",
+        "Grey",
+        "Yellow",
+        "Orange",
+        "Graphite",
+        "Blue"
+      ]
     },
     {
-      "mainImg": "https://meshque.com/cdn/storage/product_images/z4dj2AF6usXxFLMBN/fullHD/z4dj2AF6usXxFLMBN.jpeg",
+      "mainImg": "https://meshque.com/cdn/storage/product_images/yYwpAk2bL95WmCgcL/fullHD/yYwpAk2bL95WmCgcL.jpeg",
       "hoverImg": "https://meshque.com/cdn/storage/product_images/3RzwdkFctei5wnpCx/fullHD/3RzwdkFctei5wnpCx.jpeg",
       "description": "second product",
-      "price": "105 AZN",
-      "id": 2
+      "price": "105",
+      "id": 2,
+      "colors": [
+        "Green",
+        "Cappucino",
+        "White",
+        "Grey",
+        "Yellow",
+        "Orange",
+        "Graphite",
+        "Blue"
+      ]
     },
 
     {
-      "mainImg": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0f/ba/29/5c/img-worlds-of-adventure.jpg?w=1200&h=-1&s=1",
+      "mainImg": "https://meshque.com/cdn/storage/product_images/z4dj2AF6usXxFLMBN/fullHD/z4dj2AF6usXxFLMBN.jpeg",
       "hoverImg": "https://meshque.com/cdn/storage/product_images/yYwpAk2bL95WmCgcL/fullHD/yYwpAk2bL95WmCgcL.jpeg",
       "description": "first product",
-      "price": "63 AZN",
-      "id": 3
+      "price": "63",
+      "id": 3,
+      "colors": [
+        "Green",
+        "Cappucino",
+        "White",
+        "Grey",
+        "Yellow",
+        "Orange",
+        "Graphite",
+        "Blue"
+      ]
+    },
+    {
+      "mainImg": "https://meshque.com/cdn/storage/product_images/yYwpAk2bL95WmCgcL/fullHD/yYwpAk2bL95WmCgcL.jpeg",
+      "hoverImg": "https://meshque.com/cdn/storage/product_images/3RzwdkFctei5wnpCx/fullHD/3RzwdkFctei5wnpCx.jpeg",
+      "description": "second product",
+      "price": "105",
+      "id": 4,
+      "colors": [
+        "Green",
+        "Cappucino",
+        "White",
+        "Grey",
+        "Yellow",
+        "Orange",
+        "Graphite",
+        "Blue"
+      ]
+    },
+    {
+      "mainImg": "https://meshque.com/cdn/storage/product_images/yYwpAk2bL95WmCgcL/fullHD/yYwpAk2bL95WmCgcL.jpeg",
+      "hoverImg": "https://meshque.com/cdn/storage/product_images/yYwpAk2bL95WmCgcL/fullHD/yYwpAk2bL95WmCgcL.jpeg",
+      "description": "first product",
+      "price": "63",
+      "id": 5,
+      "colors": [
+        "Green",
+        "Cappucino",
+        "White",
+        "Grey",
+        "Yellow",
+        "Orange",
+        "Graphite",
+        "Blue"
+      ]
     },
     {
       "mainImg": "https://meshque.com/cdn/storage/product_images/z4dj2AF6usXxFLMBN/fullHD/z4dj2AF6usXxFLMBN.jpeg",
       "hoverImg": "https://meshque.com/cdn/storage/product_images/3RzwdkFctei5wnpCx/fullHD/3RzwdkFctei5wnpCx.jpeg",
       "description": "second product",
-      "price": "105 AZN",
-      "id": 4
+      "price": "105",
+      "id": 6,
+      "colors": [
+        "Green",
+        "Cappucino",
+        "White",
+        "Grey",
+        "Yellow",
+        "Orange",
+        "Graphite",
+        "Blue"
+      ]
     },
     {
-      "mainImg": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0f/ba/29/5c/img-worlds-of-adventure.jpg?w=1200&h=-1&s=1",
+      "mainImg": "https://meshque.com/cdn/storage/product_images/yYwpAk2bL95WmCgcL/fullHD/yYwpAk2bL95WmCgcL.jpeg",
       "hoverImg": "https://meshque.com/cdn/storage/product_images/yYwpAk2bL95WmCgcL/fullHD/yYwpAk2bL95WmCgcL.jpeg",
       "description": "first product",
-      "price": "63 AZN",
-      "id": 5
+      "price": "63",
+      "id": 7,
+      "colors": [
+        "Green",
+        "Cappucino",
+        "White",
+        "Grey",
+        "Yellow",
+        "Orange",
+        "Graphite",
+        "Blue"
+      ]
     },
     {
       "mainImg": "https://meshque.com/cdn/storage/product_images/z4dj2AF6usXxFLMBN/fullHD/z4dj2AF6usXxFLMBN.jpeg",
       "hoverImg": "https://meshque.com/cdn/storage/product_images/3RzwdkFctei5wnpCx/fullHD/3RzwdkFctei5wnpCx.jpeg",
       "description": "second product",
-      "price": "105 AZN",
-      "id": 6
+      "price": "105",
+      "id": 8,
+      "colors": [
+        "Green",
+        "Cappucino",
+        "White",
+        "Grey",
+        "Yellow",
+        "Orange",
+        "Graphite",
+        "Blue"
+      ]
     }
   ]
 }
