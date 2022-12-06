@@ -1,10 +1,12 @@
-import React from "react";
-import styles from "../styles/Home.module.css";
+import React from 'react';
+import Products from '../Components/Products';
+import Slider from '../Components/Slider';
 
 function Home() {
   return (
-    <div styles={styles.middle_panel}>
-      <p className={styles.bestsellers}>Bestsellers</p>
+    <div>
+      <Slider />
+      <Products />
     </div>
   );
 }

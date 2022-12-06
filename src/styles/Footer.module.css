@@ -15,7 +15,7 @@ ul {
   font-size: 14px;
   color: #fff;
   font-family: Lato, Arial, Helvetica Neue, Helvetica, sans-serif !important;
-  background-image: url("https://www.meshque.com/img/background1.svg");
+  background-image: url('https://www.meshque.com/img/background1.svg');
   background-repeat: no-repeat;
   background-position: 100% 100%;
   background-size: contain;
@@ -49,6 +49,10 @@ ul {
   width: 50px;
   margin: 5px;
   border-radius: 50%;
+}
+
+.icon:hover {
+  background-color: #d8127d;
 }
 
 .footer_container {

@@ -8,7 +8,7 @@ function SliderItem({ name, img }) {
         src={img}
         alt={name}
         style={{
-          width: "50%",
+          width: "1519px",
           height: "40%",
           display: "flex",
           justifyContent: "center",

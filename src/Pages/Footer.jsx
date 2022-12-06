@@ -1,10 +1,10 @@
-import React from "react";
-import styles from "../styles/Footer.module.css";
-import FacebookIcon from "@mui/icons-material/Facebook";
-import YouTubeIcon from "@mui/icons-material/YouTube";
-import WhatsAppIcon from "@mui/icons-material/WhatsApp";
-import InstagramIcon from "@mui/icons-material/Instagram";
-import { Link } from "react-router-dom";
+import React from 'react';
+import styles from '../styles/Footer.module.css';
+import FacebookIcon from '@mui/icons-material/Facebook';
+import YouTubeIcon from '@mui/icons-material/YouTube';
+import WhatsAppIcon from '@mui/icons-material/WhatsApp';
+import InstagramIcon from '@mui/icons-material/Instagram';
+import { Link } from 'react-router-dom';
 
 function Footer() {
   return (
@@ -20,15 +20,25 @@ function Footer() {
             <nav>
               <div className={styles.footer_navbar}>
                 <ul className={styles.categories}>
-                  <li className={styles.categories_item}>
-                    Contacts and Addresses
-                  </li>
-                  <li className={styles.categories_item}>About Company</li>
-                  <li className={styles.categories_item}>
-                    Shipping and Payment
-                  </li>
-                  <li className={styles.categories_item}>Return Policy </li>
-                  <li className={styles.categories_item}>Privacy Policy</li>
+                  <Link to="/contact">
+                    <li className={styles.categories_item}>
+                      Contacts and Addresses
+                    </li>
+                  </Link>
+                  <Link to="/about">
+                    <li className={styles.categories_item}>About Company</li>
+                  </Link>
+                  <Link to="/shipping">
+                    <li className={styles.categories_item}>
+                      Shipping and Payment
+                    </li>
+                  </Link>
+                  <Link to="/return">
+                    <li className={styles.categories_item}>Return Policy </li>
+                  </Link>
+                  <Link to="/privacy">
+                    <li className={styles.categories_item}>Privacy Policy</li>
+                  </Link>
                 </ul>
               </div>
             </nav>

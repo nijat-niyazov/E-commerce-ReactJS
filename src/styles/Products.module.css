@@ -1,0 +1,7 @@
+.products_cont {
+  width: 1127px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: auto;
+}
