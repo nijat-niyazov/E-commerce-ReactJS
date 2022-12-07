@@ -35,7 +35,9 @@
         "Orange",
         "Graphite",
         "Blue"
-      ]
+      ],
+      "sizes": ["XS", "S", "M", "L", "XL"],
+      "stock": 3
     },
     {
       "mainImg": "https://meshque.com/cdn/storage/product_images/yYwpAk2bL95WmCgcL/fullHD/yYwpAk2bL95WmCgcL.jpeg",
@@ -52,7 +54,9 @@
         "Orange",
         "Graphite",
         "Blue"
-      ]
+      ],
+      "sizes": ["XS", "S", "M", "L", "XL"],
+      "stock": 3
     },
 
     {
@@ -70,7 +74,9 @@
         "Orange",
         "Graphite",
         "Blue"
-      ]
+      ],
+      "sizes": ["XS", "S", "M", "L", "XL"],
+      "stock": 3
     },
     {
       "mainImg": "https://meshque.com/cdn/storage/product_images/yYwpAk2bL95WmCgcL/fullHD/yYwpAk2bL95WmCgcL.jpeg",
@@ -87,7 +93,9 @@
         "Orange",
         "Graphite",
         "Blue"
-      ]
+      ],
+      "sizes": ["XS", "S", "M", "L", "XL"],
+      "stock": 3
     },
     {
       "mainImg": "https://meshque.com/cdn/storage/product_images/yYwpAk2bL95WmCgcL/fullHD/yYwpAk2bL95WmCgcL.jpeg",
@@ -104,7 +112,9 @@
         "Orange",
         "Graphite",
         "Blue"
-      ]
+      ],
+      "sizes": ["XS", "S", "M", "L", "XL"],
+      "stock": 3
     },
     {
       "mainImg": "https://meshque.com/cdn/storage/product_images/z4dj2AF6usXxFLMBN/fullHD/z4dj2AF6usXxFLMBN.jpeg",
@@ -121,7 +131,9 @@
         "Orange",
         "Graphite",
         "Blue"
-      ]
+      ],
+      "sizes": ["XS", "S", "M", "L", "XL"],
+      "stock": 3
     },
     {
       "mainImg": "https://meshque.com/cdn/storage/product_images/yYwpAk2bL95WmCgcL/fullHD/yYwpAk2bL95WmCgcL.jpeg",
@@ -138,7 +150,9 @@
         "Orange",
         "Graphite",
         "Blue"
-      ]
+      ],
+      "sizes": ["XS", "S", "M", "L", "XL"],
+      "stock": 3
     },
     {
       "mainImg": "https://meshque.com/cdn/storage/product_images/z4dj2AF6usXxFLMBN/fullHD/z4dj2AF6usXxFLMBN.jpeg",
@@ -155,7 +169,9 @@
         "Orange",
         "Graphite",
         "Blue"
-      ]
+      ],
+      "sizes": ["XS", "S", "M", "L", "XL"],
+      "stock": 3
     }
   ]
 }

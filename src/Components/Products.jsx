@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import ProductItem from './ProductItem';
 import styles from '../styles/Products.module.css';
 import { useDispatch, useSelector } from 'react-redux';

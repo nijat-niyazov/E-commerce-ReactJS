@@ -8,10 +8,16 @@ import Privacy from './Pages/FootPages/Privacy';
 import Shipping from './Pages/FootPages/Shipping';
 import Contact from './Pages/FootPages/Contact';
 import Return from './Pages/FootPages/Return';
+import { useSelector } from 'react-redux';
+import Basket from './Pages/Basket';
 
 function App() {
+  const { ordered } = useSelector(state => state.basketReducer);
+  // console.log(ordered);
+
   return (
-    <div className="App">
+    <div className="App" style={{ overflowY: `${ordered ? 'hidden' : ''}` }}>
+      {/* <div className={ordered ? 'App-over' : 'App'}> */}
       <MainNav />
       <SecondNav />
       <Routes>
@@ -21,6 +27,7 @@ function App() {
         <Route element={<Shipping />} path="/shipping" />
         <Route element={<Contact />} path="/contact" />
         <Route element={<Return />} path="/return" />
+        <Route element={<Basket />} path="/basket" />
       </Routes>
       <Footer />
     </div>

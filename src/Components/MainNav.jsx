@@ -1,13 +1,18 @@
-import React, { useRef, useState } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import styles from '../styles/Navbar.module.css';
 import SettingsIcon from '@mui/icons-material/Settings';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import LogoutIcon from '@mui/icons-material/Logout';
+import { useSelector } from 'react-redux';
 
 function MainNav() {
   const [menu, setMenu] = useState(false);
+
+  const { basket } = useSelector(state => state.basketReducer);
+
+  
 
   const openMenu = e => {
     const coords = e.target.getBoundingClientRect();
@@ -16,7 +21,6 @@ function MainNav() {
     const center = `${right + left}` / 2;
     console.log(center);
     setMenu(true);
-    // const center =
   };
 
   return (
@@ -64,10 +68,12 @@ function MainNav() {
           <li className={styles.right_element} onClick={openMenu}>
             <FavoriteIcon />
           </li>
-          <li className={styles.right_element}>
-            <ShoppingCartIcon />
-          </li>
-          <li className={styles.content}>0</li>
+          <Link to="/basket">
+            <li className={styles.right_element}>
+              <ShoppingCartIcon />
+            </li>
+          </Link>
+          <li className={styles.content}>{basket.length}</li>
           <li className={styles.right_element}>
             <LogoutIcon />
           </li>

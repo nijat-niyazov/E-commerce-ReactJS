@@ -15,3 +15,7 @@
   max-width: 1127px;
   text-align: center;
 }
+
+body {
+  overflow-y: hidden;
+}

@@ -12,10 +12,8 @@ export const basketSlice = createSlice({
 
   reducers: {
     addProduct: (state, action) => {
-      // state.products = [action.payload, ...state.products];
-      state.ordered = true;
+      state.basket = [action.payload, ...state.basket];
     },
-
     deleteProduct: (state, action) => {
       state.products = state.products.filter(
         product => product.id !== action.payload
@@ -25,13 +23,16 @@ export const basketSlice = createSlice({
       state.products = [];
     },
     increaseQuantity: state => {
-      state.numbers = state.numbers + 1;
+      state.quantity += 1;
     },
     decreaseQuantity: state => {
       if (state.number === 0) return;
       else {
-        state.numbers = state.numbers - 1;
+        state.quantity -= 1;
       }
+    },
+    openModaL: (state, action) => {
+      state.ordered = true;
     },
     closeModal: state => {
       state.ordered = false;
@@ -46,6 +47,7 @@ export const {
   increaseQuantity,
   decreaseQuantity,
   closeModal,
+  openModaL,
 } = basketSlice.actions;
 
 export default basketSlice.reducer;
