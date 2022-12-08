@@ -18,14 +18,14 @@ function MainNav() {
       ? basket.map(item => item.quantity).reduce((a, b) => a + b)
       : 0;
 
-  // const openMenu = e => {
-  //   const coords = e.target.getBoundingClientRect();
-  //   console.log(coords);
-  //   const { right, left } = coords;
-  //   const center = `${right + left}` / 2;
-  //   console.log(center);
-  //   setMenu(true);
-  // };
+  const openMenu = e => {
+    const coords = e.target.getBoundingClientRect();
+    console.log(coords);
+    const { right, left } = coords;
+    const center = `${right + left}` / 2;
+    console.log(center);
+    setMenu(true);
+  };
 
   return (
     <nav className={styles.main_nav}>

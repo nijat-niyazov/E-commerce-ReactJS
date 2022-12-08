@@ -5,10 +5,12 @@ import { useDispatch, useSelector } from 'react-redux';
 import { openModaL } from '../redux/slices/basketSlice';
 import OrderDetails from './OrderDetails';
 import { removeFavorite } from '../redux/slices/favoriteSlice';
+import { nanoid } from '@reduxjs/toolkit';
 
-function FavItem({ name, image, price, color, size, stock, id }) {
+function FavItem({ name, image, price, color, size, stock }) {
   const { ordered } = useSelector(state => state.basketReducer);
   const dispatch = useDispatch();
+  const id = nanoid();
 
   return (
     <div className={styles.productItem}>

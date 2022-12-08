@@ -154,3 +154,9 @@ h1 {
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
 }
+
+.err_mes {
+  border-radius: 5px;
+  background-color: aquamarine;
+  color: orangered;
+}

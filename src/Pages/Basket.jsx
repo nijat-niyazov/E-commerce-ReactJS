@@ -3,13 +3,20 @@ import styles from '../styles/Basket.module.css';
 import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 import { useDispatch, useSelector } from 'react-redux';
 import { deleteProduct } from '../redux/slices/basketSlice';
+import { toast } from 'react-toastify';
 
 function Basket() {
   const { basket } = useSelector(state => state.basketReducer);
   const dispatch = useDispatch();
 
-  const ids = basket.map(bas => bas);
+  const deleteHandle = id => {
+    dispatch(deleteProduct(id));
+    toast.error('You deleted item', {
+      className: 'err_mes',
+    });
+  };
 
+  // const ids = basket.map(bas => bas);
   // console.log(ids);
   // console.log(new Set(ids[0]));
 
@@ -63,8 +70,7 @@ function Basket() {
                   <div className={styles.right}>
                     <button
                       onClick={() => {
-                        console.log('deleted');
-                        dispatch(deleteProduct(id));
+                        deleteHandle(id);
                       }}
                       className={styles.deleteBtn}
                     >

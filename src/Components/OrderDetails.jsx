@@ -5,6 +5,7 @@ import styles from '../styles/OrderDetails.module.css';
 import RemoveIcon from '@mui/icons-material/Remove';
 import AddIcon from '@mui/icons-material/Add';
 import HighlightOffIcon from '@mui/icons-material/HighlightOff';
+import { ToastContainer, toast } from 'react-toastify';
 
 function OrderDetails({ colors, price, sizes, stock, description, img, id }) {
   const [quantity, setQuantity] = useState(1);
@@ -22,9 +23,11 @@ function OrderDetails({ colors, price, sizes, stock, description, img, id }) {
         quantity: quantity,
         image: img,
         id: id,
-      }),
-      closeModal()
+      })
     );
+    dispatch(closeModal());
+    // showToastMessage();
+    toast.success('You added items to basket !');
   };
 
   return (
@@ -144,6 +147,10 @@ function OrderDetails({ colors, price, sizes, stock, description, img, id }) {
           >
             Add ✔
           </button>
+          {/* <div>
+            <button onClick={showToastMessage}>Notify</button>
+            <ToastContainer />
+          </div> */}
         </div>
       </div>
     </div>

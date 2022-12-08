@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Products from '../Components/Products';
 import Slider from '../Components/Slider';
 

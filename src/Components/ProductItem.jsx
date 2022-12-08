@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { openModaL } from '../redux/slices/basketSlice';
 import OrderDetails from './OrderDetails';
 import { setFavorites } from '../redux/slices/favoriteSlice';
+import { nanoid } from '@reduxjs/toolkit';
 
 function ProductItem({
   description,
@@ -14,11 +15,11 @@ function ProductItem({
   colors,
   sizes,
   stock,
-  id,
+  // id,
 }) {
   const { ordered } = useSelector(state => state.basketReducer);
   const dispatch = useDispatch();
-  // const id = nanoid();
+  const id = nanoid();
 
   // console.log(id);
 

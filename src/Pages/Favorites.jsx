@@ -11,20 +11,7 @@ function Favorites() {
       <h1>Favorites</h1>
       {favorites.length === 0 ? (
         <div>
-          <h2
-            style={{
-              maxWidth: '700px',
-              margin: 'auto',
-              padding: '1em ',
-              textAlign: 'center',
-              fontSize: '1.3rem',
-              lineHeight: '1.4285em',
-              color: 'rgba(0,0,0,.87)',
-              fontWeight: '500',
-              fontFamily:
-                "-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif",
-            }}
-          >
+          <h2 className={styles.empty_cart}>
             You have no products in your cart
           </h2>
         </div>

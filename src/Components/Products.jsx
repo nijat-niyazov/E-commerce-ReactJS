@@ -6,7 +6,6 @@ import { setProducts } from '../redux/slices/productsSlice';
 
 function Products() {
   const { products } = useSelector(state => state.productsReducer);
-
   const dispatch = useDispatch();
 
   const calling = () => {
@@ -22,8 +21,8 @@ function Products() {
 
   return (
     <div className={styles.products_cont}>
-      {products.map(product => (
-        <ProductItem key={product.id} {...product} />
+      {products.map((product, i) => (
+        <ProductItem key={i} {...product} />
       ))}
     </div>
   );

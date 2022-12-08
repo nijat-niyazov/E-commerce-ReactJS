@@ -11,14 +11,14 @@ import Return from './Pages/FootPages/Return';
 import { useSelector } from 'react-redux';
 import Basket from './Pages/Basket';
 import Favorites from './Pages/Favorites';
+import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer } from 'react-toastify';
 
 function App() {
   const { ordered } = useSelector(state => state.basketReducer);
-  // console.log(ordered);
 
   return (
     <div className="App" style={{ overflowY: `${ordered ? 'hidden' : ''}` }}>
-      {/* <div className={ordered ? 'App-over' : 'App'}> */}
       <MainNav />
       <SecondNav />
       <Routes>
@@ -31,6 +31,19 @@ function App() {
         <Route element={<Basket />} path="/basket" />
         <Route element={<Favorites />} path="/favorites" />
       </Routes>
+      <ToastContainer
+        autoClose={3000}
+        pauseOnFocusLoss
+        // toastStyle={{ backgroundColor: 'aqua', color: 'black' }}
+        position="top-right"
+        hideProgressBar={false}
+        newestOnTop={true}
+        closeOnClick
+        rtl={false}
+        draggable={true}
+        pauseOnHover
+        // theme="colored"
+      />
       <Footer />
     </div>
   );
