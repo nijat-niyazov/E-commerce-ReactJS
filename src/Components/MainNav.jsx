@@ -12,16 +12,20 @@ function MainNav() {
 
   const { basket } = useSelector(state => state.basketReducer);
 
-  
+  let sumOfQuantities = 0;
+  sumOfQuantities =
+    basket.length > 0
+      ? basket.map(item => item.quantity).reduce((a, b) => a + b)
+      : 0;
 
-  const openMenu = e => {
-    const coords = e.target.getBoundingClientRect();
-    console.log(coords);
-    const { right, left } = coords;
-    const center = `${right + left}` / 2;
-    console.log(center);
-    setMenu(true);
-  };
+  // const openMenu = e => {
+  //   const coords = e.target.getBoundingClientRect();
+  //   console.log(coords);
+  //   const { right, left } = coords;
+  //   const center = `${right + left}` / 2;
+  //   console.log(center);
+  //   setMenu(true);
+  // };
 
   return (
     <nav className={styles.main_nav}>
@@ -65,15 +69,17 @@ function MainNav() {
               </div>
             )}
           </li>
-          <li className={styles.right_element} onClick={openMenu}>
-            <FavoriteIcon />
-          </li>
+          <Link to="/favorites">
+            <li className={styles.right_element}>
+              <FavoriteIcon />
+            </li>
+          </Link>
           <Link to="/basket">
             <li className={styles.right_element}>
               <ShoppingCartIcon />
             </li>
           </Link>
-          <li className={styles.content}>{basket.length}</li>
+          <li className={styles.content}>{sumOfQuantities}</li>
           <li className={styles.right_element}>
             <LogoutIcon />
           </li>

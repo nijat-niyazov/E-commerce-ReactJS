@@ -2,7 +2,6 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
   basket: [],
-  quantity: 1,
   ordered: false,
 };
 
@@ -15,23 +14,15 @@ export const basketSlice = createSlice({
       state.basket = [action.payload, ...state.basket];
     },
     deleteProduct: (state, action) => {
-      state.products = state.products.filter(
+      state.basket = state.basket.filter(
         product => product.id !== action.payload
       );
     },
-    clearBasket: (state, action) => {
+    clearBasket: state => {
       state.products = [];
     },
-    increaseQuantity: state => {
-      state.quantity += 1;
-    },
-    decreaseQuantity: state => {
-      if (state.number === 0) return;
-      else {
-        state.quantity -= 1;
-      }
-    },
-    openModaL: (state, action) => {
+
+    openModaL: state => {
       state.ordered = true;
     },
     closeModal: state => {
@@ -40,14 +31,7 @@ export const basketSlice = createSlice({
   },
 });
 
-export const {
-  addProduct,
-  clearBasket,
-  deleteProduct,
-  increaseQuantity,
-  decreaseQuantity,
-  closeModal,
-  openModaL,
-} = basketSlice.actions;
+export const { addProduct, clearBasket, deleteProduct, closeModal, openModaL } =
+  basketSlice.actions;
 
 export default basketSlice.reducer;

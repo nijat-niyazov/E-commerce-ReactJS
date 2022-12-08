@@ -1,6 +1,6 @@
-import React from "react";
-import styles from "../styles/SecNav.module.css";
-import SearchAppBar from "./SearchBar";
+import React from 'react';
+import styles from '../styles/SecNav.module.css';
+import SearchAppBar from './SearchBar';
 
 function SecondNav() {
   return (

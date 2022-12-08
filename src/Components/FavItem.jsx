@@ -4,41 +4,15 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 import { useDispatch, useSelector } from 'react-redux';
 import { openModaL } from '../redux/slices/basketSlice';
 import OrderDetails from './OrderDetails';
-import { setFavorites } from '../redux/slices/favoriteSlice';
+import { removeFavorite } from '../redux/slices/favoriteSlice';
 
-function ProductItem({
-  description,
-  hoverImg,
-  mainImg,
-  price,
-  colors,
-  sizes,
-  stock,
-  id,
-}) {
+function FavItem({ name, image, price, color, size, stock, id }) {
   const { ordered } = useSelector(state => state.basketReducer);
   const dispatch = useDispatch();
-  // const id = nanoid();
-
-  // console.log(id);
-
-  const addToWishList = () => {
-    dispatch(
-      setFavorites({
-        name: description,
-        size: sizes,
-        color: colors,
-        price: price,
-        stock: stock,
-        image: mainImg,
-        id: id,
-      })
-    );
-  };
 
   return (
     <div className={styles.productItem}>
-      <img src={mainImg} alt="title" />
+      <img src={image} alt="title" />
       <div className={styles.productItemNav}>
         <button
           className={styles.productItemButton}
@@ -49,26 +23,26 @@ function ProductItem({
         {ordered && (
           <div>
             <OrderDetails
-              colors={colors}
+              colors={color}
               price={price}
-              sizes={sizes}
+              sizes={size}
               stock={stock}
-              description={description}
-              img={mainImg}
+              description={name}
+              img={image}
               id={id}
             />
           </div>
         )}
-        <button onClick={addToWishList}>
-          <FavoriteIcon className={styles.productItemFavBut} />
+        <button onClick={() => dispatch(removeFavorite(id))}>
+          <FavoriteIcon className={styles.productItemFavButRem} />
         </button>
       </div>
       <div className={styles.product_info}>
-        <p className={styles.productTitle}>{description}</p>
+        <p className={styles.productTitle}>{name}</p>
         <p className={styles.productPrice}>{price}</p>
       </div>
     </div>
   );
 }
 
-export default ProductItem;
+export default FavItem;

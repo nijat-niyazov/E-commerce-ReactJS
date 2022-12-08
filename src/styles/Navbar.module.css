@@ -4,6 +4,10 @@
   box-sizing: border-box;
 }
 
+li {
+  margin: 0;
+}
+
 a {
   text-decoration: none;
   color: white;

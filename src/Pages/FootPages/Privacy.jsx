@@ -25,27 +25,27 @@ function Privacy() {
         even when using cookies from your computer. The personal data contained
         in cookies is the data provided by you. Our cookies cannot read personal
         data from your device.
-      </p>{' '}
+      </p>
       <br />
       <p>
         3. To use certain functions of the site (for example, ordering goods and
         online payment), users must register and, accordingly, provide certain
         data during registration (for example, we can request a name, email
         address, phone number, city and postal code).
-      </p>{' '}
+      </p>
       <br />
       <p>
         4. The information you provide can help provide more personalized
         information, tailor the site to your interests and make it more
         informative. If you want to maintain anonymity, you can get on the site
         all the information available without registration.
-      </p>{' '}
+      </p>
       <br />
       <p>
         5. When you place an order and provide confidential information (data on
         a credit or debit card), its security and confidentiality is guaranteed
         by Pashabank. No information is stored on the site.
-      </p>{' '}
+      </p>
       <br />
       <p>&nbsp;</p>
       <h2>Security</h2>

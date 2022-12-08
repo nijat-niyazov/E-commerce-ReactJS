@@ -1,7 +1,11 @@
 .basket {
   width: 1127px;
   margin: auto;
+  /* font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif; */
   font-family: Lato, Arial, Helvetica Neue, Helvetica, sans-serif !important;
+
   color: #333;
 }
 
@@ -58,6 +62,7 @@ h1 {
   margin-top: 20px;
   font-size: 16px;
   max-width: 700px;
+  font-family: Lato, Arial, Helvetica Neue, Helvetica, sans-serif !important;
 
   margin: auto;
   padding: 34px 0;
@@ -128,4 +133,24 @@ h1 {
   max-width: 300px;
   width: 100%;
   margin: 0;
+}
+
+.deleteBtn {
+  cursor: pointer;
+  border: none;
+  background-color: #fff;
+}
+
+.empty_cart {
+  max-width: 700px;
+  margin: auto;
+  padding: 1em;
+  text-align: center;
+  font-size: 1.3rem;
+  line-height: 1.4285em;
+  color: rgba(0, 0, 0, 0.87);
+  font-weight: 500;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
 }

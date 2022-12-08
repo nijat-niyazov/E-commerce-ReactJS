@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import styles from '..//../styles/FootPages.module.css';
 
 function About() {
-  
   useEffect(() => {
     // 👇️ scroll to top on page load
     window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });

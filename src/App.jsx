@@ -10,6 +10,7 @@ import Contact from './Pages/FootPages/Contact';
 import Return from './Pages/FootPages/Return';
 import { useSelector } from 'react-redux';
 import Basket from './Pages/Basket';
+import Favorites from './Pages/Favorites';
 
 function App() {
   const { ordered } = useSelector(state => state.basketReducer);
@@ -28,6 +29,7 @@ function App() {
         <Route element={<Contact />} path="/contact" />
         <Route element={<Return />} path="/return" />
         <Route element={<Basket />} path="/basket" />
+        <Route element={<Favorites />} path="/favorites" />
       </Routes>
       <Footer />
     </div>

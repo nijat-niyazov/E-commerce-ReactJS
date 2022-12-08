@@ -1,24 +1,16 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import {
-  addProduct,
-  closeModal,
-  decreaseQuantity,
-  increaseQuantity,
-} from '../redux/slices/basketSlice';
+import { addProduct, closeModal } from '../redux/slices/basketSlice';
 import styles from '../styles/OrderDetails.module.css';
 import RemoveIcon from '@mui/icons-material/Remove';
 import AddIcon from '@mui/icons-material/Add';
 import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 
-function OrderDetails({ colors, price, sizes, stock, description, img }) {
-  const { quantity } = useSelector(state => state.basketReducer);
-  // const { basket } = useSelector(state => state.basketReducer);
+function OrderDetails({ colors, price, sizes, stock, description, img, id }) {
+  const [quantity, setQuantity] = useState(1);
   const [coloritta, setColoritta] = useState(false);
   const [sizeOpt, setSizeOpt] = useState(false);
   const dispatch = useDispatch();
-
-  // console.log(basket);
 
   const addToBasket = () => {
     dispatch(
@@ -29,7 +21,9 @@ function OrderDetails({ colors, price, sizes, stock, description, img }) {
         price: price,
         quantity: quantity,
         image: img,
-      })
+        id: id,
+      }),
+      closeModal()
     );
   };
 
@@ -51,12 +45,13 @@ function OrderDetails({ colors, price, sizes, stock, description, img }) {
           <h5 className={styles.option_name}>Size</h5>
           {sizes.map((size, i) => {
             return (
-              <div key={i} onChange={e => setSizeOpt(e.target.value)}>
+              <div key={i}>
                 <input
+                  className={styles.option_button}
                   type="radio"
                   name="size"
-                  value={sizeOpt}
-                  className={styles.option_button}
+                  value={size}
+                  onChange={e => setSizeOpt(e.target.value)}
                 />
                 <label className={styles.option}>{size}</label>
               </div>
@@ -74,9 +69,7 @@ function OrderDetails({ colors, price, sizes, stock, description, img }) {
                   type="radio"
                   name="product_color"
                   value={color}
-                  onChange={e => {
-                    setColoritta(e.target.value);
-                  }}
+                  onChange={e => setColoritta(e.target.value)}
                 />
                 <label className={styles.option} htmlFor="">
                   {color}
@@ -89,10 +82,15 @@ function OrderDetails({ colors, price, sizes, stock, description, img }) {
         <div className={styles.quantity}>
           <button
             className={styles.quantity_icon}
+            // onClick={() => {
+            //   if (quantity < 2) return;
+            //   else {
+            //     dispatch(decreaseQuantity());
+            //   }
             onClick={() => {
               if (quantity < 2) return;
               else {
-                dispatch(decreaseQuantity());
+                setQuantity(quantity => quantity - 1);
               }
             }}
             disabled={!coloritta || !sizeOpt}
@@ -103,10 +101,15 @@ function OrderDetails({ colors, price, sizes, stock, description, img }) {
           <button
             className={styles.quantity_icon}
             disabled={!coloritta || !sizeOpt}
+            // onClick={() => {
+            //   if (quantity === stock) return;
+            //   else {
+            //     dispatch(increaseQuantity());
+            //   }
             onClick={() => {
               if (quantity === stock) return;
               else {
-                dispatch(increaseQuantity());
+                setQuantity(quantity => quantity + 1);
               }
             }}
           >
