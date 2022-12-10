@@ -6,8 +6,10 @@ import { deleteProduct } from '../redux/slices/basketSlice';
 import { toast } from 'react-toastify';
 
 function Basket() {
-  const { basket } = useSelector(state => state.basketReducer);
+  const { basket } = useSelector(state => state.basket);
   const dispatch = useDispatch();
+
+  console.log(basket)
 
   const deleteHandle = id => {
     dispatch(deleteProduct(id));

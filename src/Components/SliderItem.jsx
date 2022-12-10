@@ -1,5 +1,5 @@
 import React from 'react';
-import { Paper, Button } from '@mui/material';
+import { Paper } from '@mui/material';
 
 function SliderItem({ name, img }) {
   return (
@@ -8,15 +8,11 @@ function SliderItem({ name, img }) {
         src={img}
         alt={name}
         style={{
+          cursor: 'pointer',
           width: '1519px',
-          height: '500px',
-          display: 'flex',
-          justifyContent: 'center',
+          height: '445.438px',
         }}
       />
-      <h2>{name}</h2>
-
-      <Button className="CheckButton">Check it out!</Button>
     </Paper>
   );
 }

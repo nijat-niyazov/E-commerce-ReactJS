@@ -1,17 +1,19 @@
 import React, { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { addProduct, closeModal } from '../redux/slices/basketSlice';
 import styles from '../styles/OrderDetails.module.css';
 import RemoveIcon from '@mui/icons-material/Remove';
 import AddIcon from '@mui/icons-material/Add';
 import HighlightOffIcon from '@mui/icons-material/HighlightOff';
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 
 function OrderDetails({ colors, price, sizes, stock, description, img, id }) {
   const [quantity, setQuantity] = useState(1);
   const [coloritta, setColoritta] = useState(false);
   const [sizeOpt, setSizeOpt] = useState(false);
   const dispatch = useDispatch();
+
+  console.log(sizeOpt);
 
   const addToBasket = () => {
     dispatch(

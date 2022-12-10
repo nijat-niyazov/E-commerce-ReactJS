@@ -11,12 +11,20 @@
   ],
   "slider": [
     {
-      "img": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0f/ba/29/5c/img-worlds-of-adventure.jpg?w=1200&h=-1&s=1",
+      "img": "https://meshque.com/cdn/storage/slider_images/E8rJ8HLzTaAWaKvNf/ultraHD/E8rJ8HLzTaAWaKvNf.jpg",
       "name": "first slide"
     },
     {
-      "img": "https://www.imgacademy.com/sites/default/files/2022-07/img-homepage-meta.jpg",
+      "img": "https://meshque.com/cdn/storage/slider_images/SkJPHq8Mxj72Emhqr/ultraHD/SkJPHq8Mxj72Emhqr.jpg",
       "name": "second slide"
+    },
+    {
+      "img": "https://meshque.com/cdn/storage/slider_images/YozkCzLsYgXEzhFWL/ultraHD/YozkCzLsYgXEzhFWL.jpeg",
+      "name": "third slide"
+    },
+    {
+      "img": "https://meshque.com/cdn/storage/slider_images/Cz8gqxeW8RL4HTwvZ/ultraHD/Cz8gqxeW8RL4HTwvZ.jpeg",
+      "name": "fourth slide"
     }
   ],
   "products": [

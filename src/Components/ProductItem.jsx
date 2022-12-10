@@ -17,7 +17,7 @@ function ProductItem({
   stock,
   // id,
 }) {
-  const { ordered } = useSelector(state => state.basketReducer);
+  const { ordered } = useSelector(state => state.basket);
   const dispatch = useDispatch();
   const id = nanoid();
 

@@ -15,10 +15,11 @@ import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer } from 'react-toastify';
 
 function App() {
-  const { ordered } = useSelector(state => state.basketReducer);
+  // const { ordered } = useSelector(state => state.basketReducer);
 
   return (
-    <div className="App" style={{ overflowY: `${ordered ? 'hidden' : ''}` }}>
+    // <div className="App" style={{ overflowY: `${ordered ? 'hidden' : ''}` }}>
+    <div className="App">
       <MainNav />
       <SecondNav />
       <Routes>
@@ -42,7 +43,7 @@ function App() {
         rtl={false}
         draggable={true}
         pauseOnHover
-        // theme="colored"
+        theme="colored"
       />
       <Footer />
     </div>

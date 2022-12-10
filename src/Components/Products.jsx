@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { setProducts } from '../redux/slices/productsSlice';
 
 function Products() {
-  const { products } = useSelector(state => state.productsReducer);
+  const { products } = useSelector(state => state.product);
   const dispatch = useDispatch();
 
   const calling = () => {

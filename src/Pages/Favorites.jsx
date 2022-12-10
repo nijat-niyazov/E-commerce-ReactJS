@@ -4,7 +4,7 @@ import FavItem from '../Components/FavItem';
 import styles from '../styles/Products.module.css';
 
 function Favorites() {
-  const { favorites } = useSelector(state => state.favoriteReducer);
+  const { favorites } = useSelector(state => state.favorite);
 
   return (
     <div>

@@ -6,12 +6,20 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import LogoutIcon from '@mui/icons-material/Logout';
 import { useSelector } from 'react-redux';
+import { Popover, Typography } from '@mui/material';
 
 function MainNav() {
   const [menu, setMenu] = useState(false);
+  const [anchorEl, setAnchorEl] = useState(null);
 
-  const { basket } = useSelector(state => state.basketReducer);
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
 
+  const open = Boolean(anchorEl);
+  const id = open ? 'simple-popover' : undefined;
+
+  const { basket } = useSelector(state => state.basket);
   let sumOfQuantities = 0;
   sumOfQuantities =
     basket.length > 0
@@ -19,12 +27,14 @@ function MainNav() {
       : 0;
 
   const openMenu = e => {
-    const coords = e.target.getBoundingClientRect();
-    console.log(coords);
-    const { right, left } = coords;
-    const center = `${right + left}` / 2;
-    console.log(center);
-    setMenu(true);
+    // const coords = e.target.getBoundingClientRect();
+    // console.log(coords);
+    // const { right, left } = coords;
+    // const center = `${right + left}` / 2;
+    // console.log(center);
+    // setMenu(true);
+
+    setAnchorEl(e.currentTarget);
   };
 
   return (
@@ -50,16 +60,14 @@ function MainNav() {
       <section className={styles.right}>
         <ul className={styles.right_elements}>
           <li className={styles.right_element}>az</li>
-          <li className={styles.right_element} onClick={openMenu}>
-            ru
-          </li>
+          <li className={styles.right_element}>ru</li>
           <li
             className={styles.right_element}
             // onMouseLeave={() => setMenu(false)}
             onClick={openMenu}
           >
             <SettingsIcon />
-            {menu && (
+            {/* {menu && (
               <div className={styles.menu}>
                 <select name="" id="">
                   <option value="Canada">Canada</option>
@@ -67,7 +75,20 @@ function MainNav() {
                   <option value="Russia">Russia</option>
                 </select>
               </div>
-            )}
+            )} */}
+
+            <Popover
+              onClose={handleClose}
+              id={id}
+              open={open}
+              anchorEl={anchorEl}
+              anchorOrigin={{
+                vertical: 'bottom',
+                horizontal: -150,
+              }}
+            >
+              <Typography sx={{ p: 2 }}>The content of the Popover.</Typography>
+            </Popover>
           </li>
           <Link to="/favorites">
             <li className={styles.right_element}>
