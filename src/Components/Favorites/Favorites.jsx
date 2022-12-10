@@ -1,7 +1,7 @@
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import FavItem from '../Components/FavItem';
-import styles from '../styles/Products.module.css';
+import { useSelector } from 'react-redux';
+import FavItem from './FavItem';
+import styles from '../Products/ProductItem.module.css';
 
 function Favorites() {
   const { favorites } = useSelector(state => state.favorite);

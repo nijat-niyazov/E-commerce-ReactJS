@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from '../styles/Footer.module.css';
+import styles from './Footer.module.css';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import YouTubeIcon from '@mui/icons-material/YouTube';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';

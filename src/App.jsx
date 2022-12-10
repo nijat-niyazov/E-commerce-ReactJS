@@ -1,16 +1,15 @@
 import Home from './Pages/Home';
-import Footer from './Pages/Footer';
+import Footer from './Components/Footer/Footer';
 import { Routes, Route } from 'react-router-dom';
-import MainNav from './Components/MainNav';
-import SecondNav from './Components/SecondNav';
-import About from './Pages/FootPages/About';
-import Privacy from './Pages/FootPages/Privacy';
-import Shipping from './Pages/FootPages/Shipping';
-import Contact from './Pages/FootPages/Contact';
-import Return from './Pages/FootPages/Return';
-import { useSelector } from 'react-redux';
-import Basket from './Pages/Basket';
-import Favorites from './Pages/Favorites';
+import MainNav from './Components/NavBar/MainNav';
+import SecondNav from './Components/NavBar/SecondNav';
+import About from './Components/Footer/FootPages/About';
+import Privacy from './Components/Footer/FootPages/Privacy';
+import Shipping from './Components/Footer/FootPages/Shipping';
+import Contact from './Components/Footer/FootPages/Contact';
+import Return from './Components/Footer/FootPages/Return';
+import Basket from './Components/Basket/Basket';
+import Favorites from './Components/Favorites/Favorites';
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer } from 'react-toastify';
 

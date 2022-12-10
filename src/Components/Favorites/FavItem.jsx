@@ -1,14 +1,14 @@
 import React from 'react';
-import styles from '../styles/ProductItem.module.css';
+import styles from '../Products/ProductItem.module.css';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import { useDispatch, useSelector } from 'react-redux';
-import { openModaL } from '../redux/slices/basketSlice';
-import OrderDetails from './OrderDetails';
-import { removeFavorite } from '../redux/slices/favoriteSlice';
+import { openModaL } from '../../redux/slices/basketSlice';
+import OrderDetails from '../OrderDetailsForm/OrderDetails';
+import { removeFavorite } from '../../redux/slices/favoriteSlice';
 import { nanoid } from '@reduxjs/toolkit';
 
 function FavItem({ name, image, price, color, size, stock }) {
-  const { ordered } = useSelector(state => state.basket);
+  const { ordered } = useSelector(state => state.persistedBasket);
   const dispatch = useDispatch();
   const id = nanoid();
 

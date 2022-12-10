@@ -1,11 +1,6 @@
 import * as React from 'react';
 import { useState } from 'react';
 import TextField from '@mui/material/TextField';
-import { styled, alpha } from '@mui/material/styles';
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
-import InputBase from '@mui/material/InputBase';
 import SearchIcon from '@mui/icons-material/Search';
 import IconButton from '@mui/material/IconButton';
 
@@ -37,9 +32,10 @@ const SearchBar = () => {
   };
 
   return (
-    <div>
-      <form>
+    <div style={{ opacity: '0.5', borderRadius: '50px' }}>
+      <form style={{ borderRadius: '50px' }}>
         <TextField
+          style={{ borderRadius: '50px' }}
           id="search-bar"
           className="text"
           onChange={e => {
@@ -50,11 +46,8 @@ const SearchBar = () => {
           value={searchQuery}
           label="Enter a product name"
           variant="outlined"
-          placeholder="Search..."
+          placeholder="Search item or brand"
           size="small"
-          style={{
-            borderRadius: '50%',
-          }}
         />
         <IconButton
           type="submit"
@@ -65,10 +58,11 @@ const SearchBar = () => {
           }}
         >
           <SearchIcon
-            style={{ fill: 'blue' }}
-            onClick={e => {
-              e.preventDefault();
-              setSearchQuery('');
+            style={{
+              fill: '#333',
+              position: 'absolute',
+              right: '20px',
+              top: '7px',
             }}
           />
         </IconButton>

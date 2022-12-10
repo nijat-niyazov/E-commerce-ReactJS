@@ -1,6 +1,6 @@
-import React, { useEffect } from 'react';
-import Products from '../Components/Products';
-import Slider from '../Components/Slider';
+import React from 'react';
+import Products from '../Components/Products/Products';
+import Slider from '../Components/Slider/Slider';
 
 function Home() {
   return (

@@ -1,4 +1,4 @@
-import styles from '..//../styles/FootPages.module.css';
+import styles from './FootPages.module.css';
 import React, { useEffect } from 'react';
 
 function Return() {

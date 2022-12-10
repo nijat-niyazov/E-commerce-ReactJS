@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react';
 import ProductItem from './ProductItem';
-import styles from '../styles/Products.module.css';
+import styles from './Products.module.css';
 import { useDispatch, useSelector } from 'react-redux';
-import { setProducts } from '../redux/slices/productsSlice';
+import { setProducts } from '../../redux/slices/productsSlice';
 
 function Products() {
-  const { products } = useSelector(state => state.product);
+  const { products } = useSelector(state => state.persistedProducts);
   const dispatch = useDispatch();
 
   const calling = () => {

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { addProduct, closeModal } from '../redux/slices/basketSlice';
-import styles from '../styles/OrderDetails.module.css';
+import { addProduct, closeModal } from '../../redux/slices/basketSlice';
+import styles from './OrderDetails.module.css';
 import RemoveIcon from '@mui/icons-material/Remove';
 import AddIcon from '@mui/icons-material/Add';
 import HighlightOffIcon from '@mui/icons-material/HighlightOff';
@@ -28,7 +28,6 @@ function OrderDetails({ colors, price, sizes, stock, description, img, id }) {
       })
     );
     dispatch(closeModal());
-    // showToastMessage();
     toast.success('You added items to basket !');
   };
 

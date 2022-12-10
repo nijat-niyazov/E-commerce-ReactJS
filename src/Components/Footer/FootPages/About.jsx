@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import styles from '..//../styles/FootPages.module.css';
+import styles from './FootPages.module.css';
 
 function About() {
   useEffect(() => {

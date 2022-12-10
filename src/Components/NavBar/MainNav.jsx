@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import styles from '../styles/Navbar.module.css';
+import styles from './Navbar.module.css';
 import SettingsIcon from '@mui/icons-material/Settings';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
@@ -9,7 +9,6 @@ import { useSelector } from 'react-redux';
 import { Popover, Typography } from '@mui/material';
 
 function MainNav() {
-  const [menu, setMenu] = useState(false);
   const [anchorEl, setAnchorEl] = useState(null);
 
   const handleClose = () => {
@@ -19,7 +18,7 @@ function MainNav() {
   const open = Boolean(anchorEl);
   const id = open ? 'simple-popover' : undefined;
 
-  const { basket } = useSelector(state => state.basket);
+  const { basket } = useSelector(state => state.persistedBasket);
   let sumOfQuantities = 0;
   sumOfQuantities =
     basket.length > 0
