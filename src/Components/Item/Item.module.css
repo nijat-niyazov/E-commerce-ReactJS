@@ -1,0 +1,31 @@
+.product_item {
+  display: grid;
+  grid-template-columns: 180px 560px auto;
+  gap: 20px;
+}
+
+.colors {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.color {
+  margin-right: 10px;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.sizes {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.size {
+  margin-right: 10px;
+  padding: 10px;
+  cursor: pointer;
+}

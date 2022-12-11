@@ -12,6 +12,7 @@ import Basket from './Components/Basket/Basket';
 import Favorites from './Components/Favorites/Favorites';
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer } from 'react-toastify';
+import Item from './Components/Item/Item';
 
 function App() {
   // const { ordered } = useSelector(state => state.basketReducer);
@@ -30,6 +31,7 @@ function App() {
         <Route element={<Return />} path="/return" />
         <Route element={<Basket />} path="/basket" />
         <Route element={<Favorites />} path="/favorites" />
+        <Route element={<Item />} path="/item/:id" />
       </Routes>
       <ToastContainer
         autoClose={3000}

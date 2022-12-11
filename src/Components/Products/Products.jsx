@@ -3,6 +3,7 @@ import ProductItem from './ProductItem';
 import styles from './Products.module.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { setProducts } from '../../redux/slices/productsSlice';
+import { Link } from 'react-router-dom';
 
 function Products() {
   const { products } = useSelector(state => state.persistedProducts);
@@ -21,9 +22,14 @@ function Products() {
 
   return (
     <div className={styles.products_cont}>
-      {products.map((product, i) => (
-        <ProductItem key={i} {...product} />
-      ))}
+      {products.map((product, i) => {
+        // console.log(product.id);
+        return (
+          <Link to={`item/${product.id}`} key={i}>
+            <ProductItem {...product} />;
+          </Link>
+        );
+      })}
     </div>
   );
 }

@@ -7,7 +7,7 @@ import { useSelector } from 'react-redux';
 function Basket() {
   const { basket } = useSelector(state => state.persistedBasket);
 
-  console.log(basket);
+  // console.log(basket);
 
   return (
     <div className={styles.basket_page}>

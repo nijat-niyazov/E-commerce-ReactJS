@@ -47,17 +47,17 @@ function OrderDetails({ colors, price, sizes, stock, description, img, id }) {
 
         <div className={styles.sizes}>
           <h5 className={styles.option_name}>Size</h5>
-          {sizes.map((size, i) => {
+          {sizes.map((sizze, i) => {
             return (
               <div key={i}>
                 <input
                   className={styles.option_button}
                   type="radio"
                   name="size"
-                  value={size}
+                  value={sizze}
                   onChange={e => setSizeOpt(e.target.value)}
                 />
-                <label className={styles.option}>{size}</label>
+                <label className={styles.option}>{sizze}</label>
               </div>
             );
           })}
@@ -65,18 +65,18 @@ function OrderDetails({ colors, price, sizes, stock, description, img, id }) {
 
         <div className={styles.colors}>
           <h5 className={styles.option_name}>Color</h5>
-          {colors.map((color, i) => {
+          {colors.map((col, i) => {
             return (
               <div key={i}>
                 <input
                   className={styles.option_button}
                   type="radio"
                   name="product_color"
-                  value={color}
+                  value={col}
                   onChange={e => setColoritta(e.target.value)}
                 />
                 <label className={styles.option} htmlFor="">
-                  {color}
+                  {col}
                 </label>
               </div>
             );
