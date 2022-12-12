@@ -22,14 +22,9 @@ function Products() {
 
   return (
     <div className={styles.products_cont}>
-      {products.map((product, i) => {
-        // console.log(product.id);
-        return (
-          <Link to={`item/${product.id}`} key={i}>
-            <ProductItem {...product} />;
-          </Link>
-        );
-      })}
+      {products.map((product, i) => (
+        <ProductItem key={i} {...product} />
+      ))}
     </div>
   );
 }

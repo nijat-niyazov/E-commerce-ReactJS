@@ -45,18 +45,34 @@ function Footer() {
           </article>
 
           <div className={styles.icons}>
-            <Link className={styles.icon} to="https://www.facebook.com/">
+            <a
+              className={styles.icon}
+              href="https://www.facebook.com/"
+              target="_blank"
+            >
               <FacebookIcon />
-            </Link>
-            <Link className={styles.icon} to="https://www.instagram.com/">
+            </a>
+            <a
+              className={styles.icon}
+              href="https://www.instagram.com/"
+              target="_blank"
+            >
               <InstagramIcon />
-            </Link>
-            <Link className={styles.icon} to="https://www.whatsapp.com/">
+            </a>
+            <a
+              className={styles.icon}
+              href="https://www.whatsapp.com/"
+              target="_blank"
+            >
               <WhatsAppIcon />
-            </Link>
-            <Link className={styles.icon} to="https://www.youtube.com/">
+            </a>
+            <a
+              className={styles.icon}
+              href="https://www.youtube.com/"
+              target="_blank"
+            >
               <YouTubeIcon />
-            </Link>
+            </a>
           </div>
         </div>
 

@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { openModaL } from '../../redux/slices/basketSlice';
 import OrderDetails from '../OrderDetailsForm/OrderDetails';
 import { setFavorites } from '../../redux/slices/favoriteSlice';
-import { nanoid } from '@reduxjs/toolkit';
+// import { nanoid } from '@reduxjs/toolkit';
 import { Link } from 'react-router-dom';
 
 function ProductItem({
@@ -16,11 +16,11 @@ function ProductItem({
   colors,
   sizes,
   stock,
-  // id,
+  id,
 }) {
   const { ordered } = useSelector(state => state.persistedBasket);
   const dispatch = useDispatch();
-  const id = nanoid();
+  // const id = nanoid();
 
   const addToWishList = () => {
     dispatch(
@@ -36,9 +36,20 @@ function ProductItem({
     );
   };
 
+  console.log(id);
+
   return (
     <div className={styles.productItem}>
-      <img src={mainImg} alt="title" />
+      <Link to={`item/${id}`}>
+        <img
+          src={mainImg}
+          alt="title"
+          style={{
+            maxWidth: '100%',
+            maxHeight: '100%',
+          }}
+        />
+      </Link>
       <div className={styles.productItemNav}>
         <button
           className={styles.productItemButton}

@@ -18,11 +18,7 @@ function Item() {
     window.scrollTo({ top: 0, left: 0 });
   });
 
-  return (
-    <article className={styles.product_item}>
-      <ItemImgs {...selectedProduct} />
-    </article>
-  );
+  return <ItemImgs {...selectedProduct} />;
 }
 
 export default Item;

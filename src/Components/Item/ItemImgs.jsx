@@ -2,40 +2,38 @@ import React, { useState, useEffect } from 'react';
 import styles from './Item.module.css';
 import ItemInfo from './ItemInfo';
 
-function ItemImgs(props) {
-  const {
+function ItemImgs({
+  colors,
+  description,
+  id,
+  mainImg,
+  price,
+  sizes,
+  stock,
+  productImages,
+}) {
+  const exi = {
     colors,
     description,
-    hoverImg,
     id,
     mainImg,
     price,
     sizes,
     stock,
-    productImages,
-  } = props;
-
-  const exi = [
-    { colors, description, hoverImg, id, mainImg, price, sizes, stock },
-  ];
+  };
 
   const [indexOfImg, setIndexOfImg] = useState(0);
 
   const getID = e => {
     setIndexOfImg(e.target.id);
+    console.log(e.target.classList);
+
+    e.target.classList.add('mystyle');
   };
 
   return (
-    <div
-      style={{
-        display: 'grid',
-        gridTemplateColumns: '180px 560px 1fr',
-        gap: '20px',
-        margin: '20px',
-        padding: '14px',
-      }}
-    >
-      <ul>
+    <div className={styles.product_item}>
+      <ul style={{ cursor: 'pointer' }}>
         {productImages.map((img, i) => {
           return (
             <li
@@ -45,11 +43,12 @@ function ItemImgs(props) {
               }}
             >
               <img
-                className={styles.middle_img}
                 id={i}
                 style={{
-                  maxWidth: '100%',
-                  maxHeight: '100%',
+                  height: '58px',
+                  border: '1px solid black',
+                  padding: '0 40px',
+                  opacity: '0.5',
                 }}
                 src={img}
                 alt={img}
