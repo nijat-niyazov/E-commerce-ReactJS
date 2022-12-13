@@ -5,12 +5,12 @@
   cursor: pointer;
 }
 
-.productItem > img {
+/* .productItem > img {
   max-width: 100%;
   max-height: 100%;
   object-fit: cover;
   border-radius: 10px;
-}
+} */
 
 .prductTitle,
 .productPrice {

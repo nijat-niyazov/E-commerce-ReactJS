@@ -26,13 +26,6 @@ function MainNav() {
       : 0;
 
   const openMenu = e => {
-    // const coords = e.target.getBoundingClientRect();
-    // console.log(coords);
-    // const { right, left } = coords;
-    // const center = `${right + left}` / 2;
-    // console.log(center);
-    // setMenu(true);
-
     setAnchorEl(e.currentTarget);
   };
 

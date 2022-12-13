@@ -1,10 +1,8 @@
 import { configureStore } from '@reduxjs/toolkit';
-
 import sliderReducer from './slices/sliderSlice';
 import productsReducer from './slices/productsSlice';
 import basketReducer from './slices/basketSlice';
 import favoriteReducer from './slices/favoriteSlice';
-
 import storage from 'redux-persist/lib/storage';
 
 import {

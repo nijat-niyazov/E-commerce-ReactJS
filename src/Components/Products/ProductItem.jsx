@@ -36,7 +36,7 @@ function ProductItem({
     );
   };
 
-  console.log(id);
+  // console.log(id);
 
   return (
     <div className={styles.productItem}>
@@ -47,6 +47,8 @@ function ProductItem({
           style={{
             maxWidth: '100%',
             maxHeight: '100%',
+            objectFit: 'cover',
+            borderRadius: '10px',
           }}
         />
       </Link>

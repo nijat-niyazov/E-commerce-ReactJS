@@ -13,8 +13,6 @@ function OrderDetails({ colors, price, sizes, stock, description, img, id }) {
   const [sizeOpt, setSizeOpt] = useState(false);
   const dispatch = useDispatch();
 
-  console.log(sizeOpt);
-
   const addToBasket = () => {
     dispatch(
       addProduct({

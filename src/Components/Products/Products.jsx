@@ -3,9 +3,13 @@ import ProductItem from './ProductItem';
 import styles from './Products.module.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { setProducts } from '../../redux/slices/productsSlice';
-import { Link } from 'react-router-dom';
+import useFetch from '../../customHooks/useFetch';
 
 function Products() {
+  // const { data2: productItems } = useFetch('products');
+  // const dispatch = useDispatch();
+  // dispatch(setProducts(productItems));
+
   const { products } = useSelector(state => state.persistedProducts);
   const dispatch = useDispatch();
 

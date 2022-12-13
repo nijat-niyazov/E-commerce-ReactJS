@@ -3,6 +3,7 @@ import { useState } from 'react';
 import TextField from '@mui/material/TextField';
 import SearchIcon from '@mui/icons-material/Search';
 import IconButton from '@mui/material/IconButton';
+import { useSelector } from 'react-redux';
 
 const SearchBar = () => {
   const data = [
@@ -18,10 +19,15 @@ const SearchBar = () => {
     'Dublin',
   ];
 
+  const { products } = useSelector(state => state.persistedBasket);
+  // console.log(products);
+  const productsName = products.map(p => p.description);
+
   const [searchQuery, setSearchQuery] = useState('');
   const [countries, setCountries] = useState(data);
+  const [productItems, setProducItems] = useState(products);
 
-  const findProduct = (query, data) => {
+  const findCountry = (query, data) => {
     if (!query) {
       return countries;
     } else {
@@ -30,6 +36,26 @@ const SearchBar = () => {
       );
     }
   };
+
+  const findProduct = (query, data) => {
+    if (query.length < 1) {
+      setProducItems(productsName);
+    } else {
+      setProducItems(
+        data.map(d => d.toLowerCase()).filter(d => d.includes(query))
+      );
+      // console.log(...productItems);
+      const setted = products.filter(p =>
+        p.description.toLowerCase().includes(query)
+      );
+      console.log(setted);
+    }
+  };
+
+  let names = ['Sweater', 'TrousErs', 'hat'];
+  let results = names.filter(x => x.toLowerCase().includes('er'));
+  console.log(names);
+  console.log(results);
 
   return (
     <div style={{ opacity: '0.5', borderRadius: '50px' }}>
@@ -40,8 +66,10 @@ const SearchBar = () => {
           className="text"
           onChange={e => {
             setSearchQuery(e.target.value);
-            findProduct(searchQuery, data);
-            console.log(countries);
+            // findCountry(searchQuery, data);
+            // console.log(countries);
+            findProduct(searchQuery, productsName);
+            // console.log(productItems);
           }}
           value={searchQuery}
           label="Enter a product name"

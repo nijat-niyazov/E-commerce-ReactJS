@@ -3,21 +3,26 @@ import Carousel from 'react-material-ui-carousel';
 import SliderItem from './SliderItem';
 import { useDispatch, useSelector } from 'react-redux';
 import { setSlider } from '../../redux/slices/sliderSlice';
+import useFetch from '../../customHooks/useFetch';
 
 function Slider() {
-  let slider = useSelector(state => state.persistedSlider.sliderItems);
+  // const { data2: slider } = useFetch('slider');
+  // const dispatch = useDispatch();
+  // dispatch(setSlider(slider));
+
+  const { sliderItems } = useSelector(state => state.persistedSlider);
   const dispatch = useDispatch();
 
-  const makeSlider = () => {
-    const fetchinImgs = async () => {
+  const calling = () => {
+    const fetchingImgs = async () => {
       const res = await fetch('http://localhost:8000/slider');
       const data = await res.json();
       dispatch(setSlider(data));
     };
-    fetchinImgs();
+    fetchingImgs();
   };
 
-  useEffect(() => makeSlider(), []);
+  useEffect(() => calling(), []);
 
   return (
     <Carousel
@@ -50,7 +55,7 @@ function Slider() {
         },
       }}
     >
-      {slider.map((item, i) => (
+      {sliderItems.map((item, i) => (
         <SliderItem key={i} {...item} />
       ))}
     </Carousel>
