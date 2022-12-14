@@ -4,6 +4,7 @@ import productsReducer from './slices/productsSlice';
 import basketReducer from './slices/basketSlice';
 import favoriteReducer from './slices/favoriteSlice';
 import storage from 'redux-persist/lib/storage';
+import filteredReducer from './slices/filteredSlice';
 
 import {
   persistStore,
@@ -32,6 +33,7 @@ export const store = configureStore({
     persistedBasket,
     persistedFavorite,
     persistedProducts,
+    filteredReducer,
   },
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({

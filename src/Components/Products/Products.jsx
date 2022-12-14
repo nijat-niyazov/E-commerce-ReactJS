@@ -11,6 +11,7 @@ function Products() {
   // dispatch(setProducts(productItems));
 
   const { products } = useSelector(state => state.persistedProducts);
+  const { query, filtered } = useSelector(state => state.filteredReducer);
   const dispatch = useDispatch();
 
   const calling = () => {
@@ -26,7 +27,7 @@ function Products() {
 
   return (
     <div className={styles.products_cont}>
-      {products.map((product, i) => (
+      {(query ? filtered : products).map((product, i) => (
         <ProductItem key={i} {...product} />
       ))}
     </div>
