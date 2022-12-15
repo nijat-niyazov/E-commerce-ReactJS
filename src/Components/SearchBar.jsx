@@ -7,13 +7,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import { searchQuery, setFiltered } from '../redux/slices/filteredSlice';
 
 const SearchBar = () => {
-  const { products } = useSelector(state => state.persistedBasket);
-  // const { filtered } = useSelector(state => state.filteredReducer);
-  // console.log(!query);
+  const { products } = useSelector(state => state.persistedProducts);
   const dispatch = useDispatch();
 
   const findProduct = searchedQuery => {
-    // console.log(!searchQuery);
     if (!searchedQuery) {
       dispatch(setFiltered([]));
     } else {
@@ -26,8 +23,6 @@ const SearchBar = () => {
       );
     }
   };
-
-  // console.log(filtered, filtered.length < 1);
 
   return (
     <div style={{ opacity: '0.5', borderRadius: '50px' }}>

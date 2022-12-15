@@ -8,8 +8,6 @@ function Item() {
   const params = useParams();
   const selectedProduct = products.find(p => p.id === +params.id);
 
-  // console.log(selectedProduct);
-
   useEffect(() => {
     // 👇️ scroll to top on page load
     window.scrollTo({ top: 0, left: 0 });

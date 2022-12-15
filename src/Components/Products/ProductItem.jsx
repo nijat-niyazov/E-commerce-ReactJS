@@ -10,7 +10,6 @@ import { Link } from 'react-router-dom';
 
 function ProductItem({
   description,
-  hoverImg,
   mainImg,
   price,
   colors,

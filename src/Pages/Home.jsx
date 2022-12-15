@@ -8,8 +8,6 @@ import Info from '../Components/Typography';
 function Home() {
   const { query, filtered } = useSelector(state => state.filteredReducer);
 
-  // console.log(query);
-
   return (
     <div>
       <Slider />
