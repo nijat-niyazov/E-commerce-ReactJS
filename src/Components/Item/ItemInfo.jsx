@@ -48,7 +48,7 @@ function ItemInfo({ colors, description, id, mainImg, price, sizes, stock }) {
               }}
               value={oneColor}
               onClick={e => {
-                console.log(e.target.value);
+                console.log(e.target);
                 setColoritta(e.target.value);
               }}
             ></button>

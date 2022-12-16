@@ -1,6 +1,6 @@
+import { Routes, Route } from 'react-router-dom';
 import Home from './Pages/Home';
 import Footer from './Components/Footer/Footer';
-import { Routes, Route } from 'react-router-dom';
 import MainNav from './Components/NavBar/MainNav';
 import SecondNav from './Components/NavBar/SecondNav';
 import About from './Components/Footer/FootPages/About';
@@ -10,9 +10,10 @@ import Contact from './Components/Footer/FootPages/Contact';
 import Return from './Components/Footer/FootPages/Return';
 import Basket from './Components/Basket/Basket';
 import Favorites from './Components/Favorites/Favorites';
+import Item from './Components/Item/Item';
+import LoginForm from './Components/Login/Login';
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer } from 'react-toastify';
-import Item from './Components/Item/Item';
 
 function App() {
   // const { ordered } = useSelector(state => state.basketReducer);
@@ -24,6 +25,7 @@ function App() {
       <SecondNav />
       <Routes>
         <Route element={<Home />} path="/" />
+        <Route element={<LoginForm />} path="/login" />
         <Route element={<About />} path="/about" />
         <Route element={<Privacy />} path="/privacy" />
         <Route element={<Shipping />} path="/shipping" />
