@@ -10,7 +10,7 @@ function Slider() {
   // const dispatch = useDispatch();
   // dispatch(setSlider(slider));
 
-  const { sliderItems } = useSelector(state => state.persistedSlider);
+  const { sliderItems } = useSelector(state => state.slider);
   const dispatch = useDispatch();
 
   const calling = () => {

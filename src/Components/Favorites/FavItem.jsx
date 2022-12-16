@@ -7,10 +7,10 @@ import OrderDetails from '../OrderDetailsForm/OrderDetails';
 import { removeFavorite } from '../../redux/slices/favoriteSlice';
 import { nanoid } from '@reduxjs/toolkit';
 
-function FavItem({ name, image, price, color, size, stock }) {
-  const { ordered } = useSelector(state => state.persistedBasket);
+function FavItem({ name, image, price, color, size, stock, id }) {
+  const { ordered } = useSelector(state => state.basket);
   const dispatch = useDispatch();
-  const id = nanoid();
+  // const id = nanoid();
 
   return (
     <div className={styles.productItem}>

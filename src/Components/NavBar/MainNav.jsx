@@ -9,6 +9,14 @@ import { useSelector } from 'react-redux';
 import { Popover, Typography } from '@mui/material';
 
 function MainNav() {
+  const { basket } = useSelector(state => state.basket);
+
+  let sumOfQuantities = 0;
+  sumOfQuantities =
+    basket.length > 0
+      ? basket.map(item => item.quantity).reduce((a, b) => a + b)
+      : 0;
+
   const [anchorEl, setAnchorEl] = useState(null);
 
   const handleClose = () => {
@@ -17,13 +25,6 @@ function MainNav() {
 
   const open = Boolean(anchorEl);
   const id = open ? 'simple-popover' : undefined;
-
-  const { basket } = useSelector(state => state.persistedBasket);
-  let sumOfQuantities = 0;
-  sumOfQuantities =
-    basket.length > 0
-      ? basket.map(item => item.quantity).reduce((a, b) => a + b)
-      : 0;
 
   const openMenu = e => {
     setAnchorEl(e.currentTarget);

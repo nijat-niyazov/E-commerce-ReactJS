@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 import ItemImgs from './ItemImgs';
 
 function Item() {
-  const { products } = useSelector(state => state.persistedProducts);
+  const { products } = useSelector(state => state.products);
   const params = useParams();
   const selectedProduct = products.find(p => p.id === +params.id);
 
