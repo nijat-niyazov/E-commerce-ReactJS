@@ -1,14 +1,22 @@
 import React, { useEffect } from 'react';
-import { useState } from 'react';
 import TextField from '@mui/material/TextField';
 import SearchIcon from '@mui/icons-material/Search';
 import IconButton from '@mui/material/IconButton';
 import { useDispatch, useSelector } from 'react-redux';
 import { searchQuery, setFiltered } from '../redux/slices/filteredSlice';
+import { useLocation } from 'react-router-dom';
 
 const SearchBar = () => {
   const { products } = useSelector(state => state.products);
+  const { query } = useSelector(state => state.filtered);
   const dispatch = useDispatch();
+  const route = useLocation().pathname;
+
+  const clearQuery = () => dispatch(searchQuery(''));
+
+  useEffect(() => {
+    clearQuery();
+  }, [route]);
 
   const findProduct = searchedQuery => {
     if (!searchedQuery) {
@@ -24,9 +32,14 @@ const SearchBar = () => {
     }
   };
 
+  const submitHandle = e => {
+    e.preventDefault();
+    findProduct(query);
+  };
+
   return (
     <div style={{ opacity: '0.5', borderRadius: '50px' }}>
-      <form style={{ borderRadius: '50px' }}>
+      <form style={{ borderRadius: '50px' }} onSubmit={submitHandle}>
         <TextField
           style={{ borderRadius: '50px' }}
           id="search-bar"
@@ -35,6 +48,7 @@ const SearchBar = () => {
             findProduct(e.target.value);
             dispatch(searchQuery(e.target.value));
           }}
+          value={query}
           label="Enter a product name"
           variant="outlined"
           placeholder="Search item or brand"

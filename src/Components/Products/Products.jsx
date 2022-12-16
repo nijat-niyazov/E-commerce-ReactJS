@@ -27,9 +27,11 @@ function Products() {
 
   return (
     <div className={styles.products_cont}>
-      {(query ? filtered : products).map((product, i) => (
-        <ProductItem key={i} {...product} />
-      ))}
+      {(query || filtered.length > 1 ? filtered : products).map(
+        (product, i) => (
+          <ProductItem key={i} {...product} />
+        )
+      )}
     </div>
   );
 }
