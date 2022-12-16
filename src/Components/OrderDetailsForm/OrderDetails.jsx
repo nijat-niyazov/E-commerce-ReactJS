@@ -13,6 +13,8 @@ function OrderDetails({ colors, price, sizes, stock, description, img, id }) {
   const [sizeOpt, setSizeOpt] = useState(false);
   const dispatch = useDispatch();
 
+  console.log(quantity);
+
   const addToBasket = () => {
     dispatch(
       addProduct({
@@ -26,7 +28,9 @@ function OrderDetails({ colors, price, sizes, stock, description, img, id }) {
       })
     );
     dispatch(closeModal());
-    toast.success('You added items to basket !');
+    toast.success(
+      `You added ${quantity} new ${quantity > 1 ? 'items' : 'item'} to basket!`
+    );
   };
 
   return (
@@ -84,11 +88,6 @@ function OrderDetails({ colors, price, sizes, stock, description, img, id }) {
         <div className={styles.quantity}>
           <button
             className={styles.quantity_icon}
-            // onClick={() => {
-            //   if (quantity < 2) return;
-            //   else {
-            //     dispatch(decreaseQuantity());
-            //   }
             onClick={() => {
               if (quantity < 2) return;
               else {
@@ -103,11 +102,6 @@ function OrderDetails({ colors, price, sizes, stock, description, img, id }) {
           <button
             className={styles.quantity_icon}
             disabled={!coloritta || !sizeOpt}
-            // onClick={() => {
-            //   if (quantity === stock) return;
-            //   else {
-            //     dispatch(increaseQuantity());
-            //   }
             onClick={() => {
               if (quantity === stock) return;
               else {
@@ -146,10 +140,6 @@ function OrderDetails({ colors, price, sizes, stock, description, img, id }) {
           >
             Add ✔
           </button>
-          {/* <div>
-            <button onClick={showToastMessage}>Notify</button>
-            <ToastContainer />
-          </div> */}
         </div>
       </div>
     </div>

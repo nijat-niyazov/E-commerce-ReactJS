@@ -19,7 +19,7 @@ export const basketSlice = createSlice({
       );
     },
     clearBasket: state => {
-      state.products = [];
+      state.basket = [];
     },
 
     openModaL: state => {

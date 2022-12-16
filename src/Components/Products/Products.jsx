@@ -10,8 +10,8 @@ function Products() {
   // const dispatch = useDispatch();
   // dispatch(setProducts(productItems));
 
-  const { products } = useSelector(state => state.persistedProducts);
-  const { query, filtered } = useSelector(state => state.filteredReducer);
+  const { products } = useSelector(state => state.products);
+  const { query, filtered } = useSelector(state => state.filtered);
   const dispatch = useDispatch();
 
   const calling = () => {

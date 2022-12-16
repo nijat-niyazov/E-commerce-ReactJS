@@ -1,9 +1,14 @@
 import React from 'react';
 import styles from './Basket.module.css';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import Stack from '@mui/material/Stack';
+import Button from '@mui/material/Button';
+import { clearBasket } from '../../redux/slices/basketSlice';
+import { toast } from 'react-toastify';
 
 function BasketInfo() {
-  const { basket } = useSelector(state => state.persistedBasket);
+  const { basket } = useSelector(state => state.basket);
+  const dispatch = useDispatch();
 
   let sumOfQuantities = 0;
   let totalPrice = 0;
@@ -16,8 +21,31 @@ function BasketInfo() {
       .reduce((a, b) => +(a + b));
   }
 
+  const clearItemsFromBasket = () => {
+    dispatch(clearBasket());
+    toast.error('Your basket is empty now!');
+  };
+
   return (
     <div>
+      <section style={{ maxWidth: '700px', margin: 'auto' }}>
+        <Stack spacing={15} direction="row">
+          <Button
+            sx={{
+              ml: 'auto',
+              mt: '10px',
+            }}
+            variant="contained"
+            color="error"
+            size="large"
+            disabled={sumOfQuantities < 2}
+            onClick={clearItemsFromBasket}
+          >
+            Clear Basket
+          </Button>
+        </Stack>
+      </section>
+      ;
       <section className={styles.promocode}>
         <h4>Promo code</h4>
 

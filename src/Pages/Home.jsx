@@ -6,7 +6,7 @@ import Slider from '../Components/Slider/Slider';
 import Info from '../Components/Typography';
 
 function Home() {
-  const { query, filtered } = useSelector(state => state.filteredReducer);
+  const { query, filtered } = useSelector(state => state.filtered);
 
   return (
     <div>

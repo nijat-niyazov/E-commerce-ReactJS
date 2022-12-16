@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { searchQuery, setFiltered } from '../redux/slices/filteredSlice';
 
 const SearchBar = () => {
-  const { products } = useSelector(state => state.persistedProducts);
+  const { products } = useSelector(state => state.products);
   const dispatch = useDispatch();
 
   const findProduct = searchedQuery => {

@@ -5,7 +5,7 @@ import styles from '../Products/ProductItem.module.css';
 import Info from '../Typography';
 
 function Favorites() {
-  const { favorites } = useSelector(state => state.persistedFavorite);
+  const { favorites } = useSelector(state => state.favorite);
 
   return (
     <div>

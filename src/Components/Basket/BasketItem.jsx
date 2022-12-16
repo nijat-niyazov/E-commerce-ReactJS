@@ -6,7 +6,6 @@ import { deleteProduct } from '../../redux/slices/basketSlice';
 import { toast } from 'react-toastify';
 import styles from './Basket.module.css';
 
-
 function BasketItem(props) {
   const { color, image, name, price, quantity, size, id } = props;
 
@@ -14,9 +13,9 @@ function BasketItem(props) {
 
   const deleteHandle = id => {
     dispatch(deleteProduct(id));
-    toast.error('You deleted item', {
-      className: 'err_mes',
-    });
+    toast.error(
+      `You deleted ${quantity}  ${quantity > 1 ? 'items' : 'item'} from basket!`
+    );
   };
 
   return (
