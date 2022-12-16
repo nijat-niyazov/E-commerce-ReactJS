@@ -10,13 +10,13 @@ const SearchBar = () => {
   const { products } = useSelector(state => state.products);
   const { query } = useSelector(state => state.filtered);
   const dispatch = useDispatch();
-  const route = useLocation().pathname;
+  const route = useLocation();
 
   const clearQuery = () => dispatch(searchQuery(''));
 
   useEffect(() => {
     clearQuery();
-  }, [route]);
+  }, [route.pathname]);
 
   const findProduct = searchedQuery => {
     if (!searchedQuery) {
