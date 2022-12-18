@@ -4,7 +4,7 @@ import React, { useEffect } from 'react';
 function Return() {
   useEffect(() => {
     // 👇️ scroll to top on page load
-    window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+    window.scrollTo({ top: 198, left: 0, behavior: 'smooth' });
   });
   return (
     <div className={styles.foot_page}>

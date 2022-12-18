@@ -3,7 +3,7 @@ import TextField from '@mui/material/TextField';
 import SearchIcon from '@mui/icons-material/Search';
 import IconButton from '@mui/material/IconButton';
 import { useDispatch, useSelector } from 'react-redux';
-import { searchQuery, setFiltered } from '../redux/slices/filteredSlice';
+import { searchQuery, setFiltered } from '../../redux/slices/filteredSlice';
 import { useLocation } from 'react-router-dom';
 
 const SearchBar = () => {

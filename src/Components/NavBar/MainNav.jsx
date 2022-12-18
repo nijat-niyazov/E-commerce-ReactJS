@@ -47,9 +47,6 @@ function MainNav() {
           <Link className={styles.left_el} to="/">
             Workouts
           </Link>
-          <Link className={styles.left_el} to="/login">
-            login
-          </Link>
         </div>
       </section>
 
@@ -63,15 +60,6 @@ function MainNav() {
             onClick={openMenu}
           >
             <SettingsIcon />
-            {/* {menu && (
-              <div className={styles.menu}>
-                <select name="" id="">
-                  <option value="Canada">Canada</option>
-                  <option value="Azerbaijan">Azerbaijan</option>
-                  <option value="Russia">Russia</option>
-                </select>
-              </div>
-            )} */}
 
             <Popover
               onClose={handleClose}

@@ -6,9 +6,11 @@ import MainNav from './Components/NavBar/MainNav';
 import SecondNav from './Components/NavBar/SecondNav';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import LoadingSpinner from './Components/ZedComps/Loader';
 import lazyLoad from './utils/lazyLoad';
 
 ///////// DEFAULT LAZY COMPONENTS  ⤵
+const Contact = lazy(() => import('./Components/Footer/FootPages/Contact'));
 const Privacy = lazy(() => import('./Components/Footer/FootPages/Privacy'));
 const Shipping = lazy(() => import('./Components/Footer/FootPages/Shipping'));
 const Return = lazy(() => import('./Components/Footer/FootPages/Return'));
@@ -27,15 +29,29 @@ const Item = lazy(() => import('./Components/Item/Item'));
 // );
 
 //#2
-const About = lazyLoad('./Components/Footer/FootPages/About', 'About');
-const Contact = lazyLoad('./Components/Footer/FootPages/Contact', 'Contact');
+const About = lazyLoad('../Components/Footer/FootPages/About', 'About');
+// const Contact = lazyLoad('./Components/Footer/FootPages/Contact', 'Contact');
+
+// const lazyLoad2 = (path, component) =>
+//   lazy(() => {
+//     const promise = import(`${path}`);
+//     console.log(promise);
+//     if (component == null) {
+//       return promise;
+//     } else {
+//       return promise.then(module => ({ default: module[component] }));
+//     }
+//   });
+
+// const About = lazyLoad2('./Components/Footer/FootPages/About', 'About');
 
 function App() {
   return (
     <div className="App">
+      {/* <LoadingSpinner /> */}
       <MainNav />
       <SecondNav />
-      <Suspense fallback={<h1>IT's loading... </h1>}>
+      <Suspense fallback={<LoadingSpinner />}>
         <Routes>
           <Route element={<Home />} path="/" />
           <Route element={<LoginForm />} path="/login" />

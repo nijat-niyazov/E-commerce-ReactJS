@@ -1,10 +1,12 @@
 import React from 'react';
 import { Paper } from '@mui/material';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 function SliderItem({ name, img }) {
   return (
     <Paper>
-      <img
+      <LazyLoadImage
+        effect="blur"
         src={img}
         alt={name}
         style={{

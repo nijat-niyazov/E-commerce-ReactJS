@@ -1,11 +1,11 @@
 import React, { lazy } from 'react';
 import { About } from '../Components/Footer/FootPages/About';
-import Return from '../Components/Footer/FootPages/Return';
 
 ///// it used for if you don't have used default for exported function ⤵
 const lazyLoad = (path, component) =>
   lazy(() => {
     const promise = import(`${path}`);
+    console.log(component);
     if (component == null) {
       return promise;
     } else {
@@ -26,9 +26,3 @@ export default lazyLoad;
 //   });
 
 // lazyLoad2('./Components/Footer/FootPages/About', 'About');
-
-// const About = lazy(() =>
-//   import('./Components/Footer/FootPages/About').then(module => ({
-//     default: module.About,
-//   }))
-// );

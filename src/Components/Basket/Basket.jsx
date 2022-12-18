@@ -3,7 +3,7 @@ import styles from './Basket.module.css';
 import BasketItem from './BasketItem';
 import BasketInfo from './BasketInfo';
 import { useSelector } from 'react-redux';
-import Info from '../Typography';
+import Info from '../ZedComps/Typography';
 
 function Basket() {
   const { basket } = useSelector(state => state.basket);

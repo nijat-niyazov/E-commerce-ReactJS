@@ -5,8 +5,11 @@ import { useDispatch, useSelector } from 'react-redux';
 import { openModaL } from '../../redux/slices/basketSlice';
 import { setFavorites } from '../../redux/slices/favoriteSlice';
 import { Link } from 'react-router-dom';
+import OrderDetails from '../OrderDetailsForm/OrderDetails';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+
 // import { nanoid } from '@reduxjs/toolkit';
-const OrderDetails = lazy(() => import('../OrderDetailsForm/OrderDetails'));
+// const OrderDetails = lazy(() => import('../OrderDetailsForm/OrderDetails'));
 
 function ProductItem({
   description,
@@ -40,7 +43,8 @@ function ProductItem({
   return (
     <div className={styles.productItem}>
       <Link to={`item/${id}`}>
-        <img
+        <LazyLoadImage
+          effect="blur"
           src={mainImg}
           alt="title"
           style={{
