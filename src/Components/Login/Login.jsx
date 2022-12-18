@@ -19,13 +19,11 @@ export default function LoginForm() {
   const [mail, setMail] = useState('');
   const [pas, setPas] = useState('');
 
-  console.log(mail, pas);
-
   const signIn = () => {
-    if (active === 0) setActive(active + 1);
+    if (active === 0) setActive(1);
   };
   const signUp = () => {
-    if (active === 1) setActive(active - 1);
+    if (active === 1) setActive(0);
   };
 
   const handleClickShowPassword = () => setShowPassword(show => !show);

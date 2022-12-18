@@ -2,15 +2,11 @@ import React, { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import styles from './FootPages.module.css';
 
-function Contact() {
+export function Contact() {
   useEffect(() => {
     // 👇️ scroll to top on page load
     window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
   });
-
-  const router = useLocation();
-
-  console.log(router.pathname);
 
   return (
     <div className={styles.foot_page}>
@@ -24,5 +20,3 @@ function Contact() {
     </div>
   );
 }
-
-export default Contact;

@@ -47,6 +47,9 @@ function MainNav() {
           <Link className={styles.left_el} to="/">
             Workouts
           </Link>
+          <Link className={styles.left_el} to="/login">
+            login
+          </Link>
         </div>
       </section>
 

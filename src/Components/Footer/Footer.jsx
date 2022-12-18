@@ -4,7 +4,7 @@ import FacebookIcon from '@mui/icons-material/Facebook';
 import YouTubeIcon from '@mui/icons-material/YouTube';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import InstagramIcon from '@mui/icons-material/Instagram';
-import { Link } from 'react-router-dom';
+import { Link, Outlet } from 'react-router-dom';
 
 function Footer() {
   return (
@@ -17,31 +17,28 @@ function Footer() {
               src="https://cdn.cubics.tech/meshque_logo.png"
               alt=""
             />
-            <nav>
-              <div className={styles.footer_navbar}>
-                <ul className={styles.categories}>
-                  <Link to="/contact">
-                    <li className={styles.categories_item}>
-                      Contacts and Addresses
-                    </li>
-                  </Link>
-                  <Link to="/about">
-                    <li className={styles.categories_item}>About Company</li>
-                  </Link>
-                  <Link to="/shipping">
-                    <li className={styles.categories_item}>
-                      Shipping and Payment
-                    </li>
-                  </Link>
-                  <Link to="/return">
-                    <li className={styles.categories_item}>Return Policy </li>
-                  </Link>
-                  <Link to="/privacy">
-                    <li className={styles.categories_item}>Privacy Policy</li>
-                  </Link>
-                </ul>
-              </div>
+
+            <nav className={styles.footer_navbar}>
+              <section className={styles.categories}>
+                <Link className={styles.categories_item} to="/contact">
+                  Contacts and Addresses
+                </Link>
+                <Link className={styles.categories_item} to="/about">
+                  About Company
+                </Link>
+                <Link className={styles.categories_item} to="/shipping">
+                  Shipping and Payment
+                </Link>
+                <Link className={styles.categories_item} to="/return">
+                  Return Policy
+                </Link>
+                <Link className={styles.categories_item} to="/privacy">
+                  Privacy Policy
+                </Link>
+              </section>
             </nav>
+
+            <Outlet />
           </article>
 
           <div className={styles.icons}>

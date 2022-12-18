@@ -1,12 +1,12 @@
-import React from 'react';
+import React, { lazy } from 'react';
 import styles from './ProductItem.module.css';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import { useDispatch, useSelector } from 'react-redux';
 import { openModaL } from '../../redux/slices/basketSlice';
-import OrderDetails from '../OrderDetailsForm/OrderDetails';
 import { setFavorites } from '../../redux/slices/favoriteSlice';
-// import { nanoid } from '@reduxjs/toolkit';
 import { Link } from 'react-router-dom';
+// import { nanoid } from '@reduxjs/toolkit';
+const OrderDetails = lazy(() => import('../OrderDetailsForm/OrderDetails'));
 
 function ProductItem({
   description,

@@ -3,7 +3,7 @@ import Carousel from 'react-material-ui-carousel';
 import SliderItem from './SliderItem';
 import { useDispatch, useSelector } from 'react-redux';
 import { setSlider } from '../../redux/slices/sliderSlice';
-import useFetch from '../../customHooks/useFetch';
+import useFetch from '../../utils/useFetch';
 
 function Slider() {
   // const { data2: slider } = useFetch('slider');

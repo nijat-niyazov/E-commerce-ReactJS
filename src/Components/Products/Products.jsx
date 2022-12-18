@@ -3,7 +3,7 @@ import ProductItem from './ProductItem';
 import styles from './Products.module.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { setProducts } from '../../redux/slices/productsSlice';
-import useFetch from '../../customHooks/useFetch';
+import useFetch from '../../utils/useFetch';
 
 function Products() {
   // const { data2: productItems } = useFetch('products');

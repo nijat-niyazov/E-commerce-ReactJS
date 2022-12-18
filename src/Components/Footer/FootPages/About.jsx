@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import styles from './FootPages.module.css';
 
-function About() {
+export function About() {
   useEffect(() => {
     // 👇️ scroll to top on page load
     window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
@@ -44,4 +44,4 @@ function About() {
   );
 }
 
-export default About;
+//  default About;
