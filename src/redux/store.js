@@ -5,6 +5,7 @@ import basketReducer from './slices/basketSlice';
 import favoriteReducer from './slices/favoriteSlice';
 import filteredReducer from './slices/filteredSlice';
 import storage from 'redux-persist/lib/storage';
+import userSlice from './slices/userSlice';
 
 import {
   persistStore,
@@ -26,6 +27,7 @@ const persistedSlider = persistReducer(persistConfig, sliderReducer);
 const persistedBasket = persistReducer(persistConfig, basketReducer);
 const persistedFavorite = persistReducer(persistConfig, favoriteReducer);
 const persistedProducts = persistReducer(persistConfig, productsReducer);
+const persistedUsers = persistReducer(persistConfig, userSlice);
 
 export const store = configureStore({
   reducer: {
@@ -34,6 +36,7 @@ export const store = configureStore({
     products: persistedProducts,
     basket: persistedBasket,
     filtered: filteredReducer,
+    users: persistedUsers,
   },
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({

@@ -5,6 +5,8 @@ import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
 import { clearBasket } from '../../redux/slices/basketSlice';
 import { toast } from 'react-toastify';
+import { Link } from 'react-router-dom';
+import LoginForm from '../Login/Login';
 
 function BasketInfo() {
   const { basket } = useSelector(state => state.basket);
@@ -82,9 +84,14 @@ function BasketInfo() {
         </div>
       </section>
       <section className={styles.actions}>
-        <button className={styles.action_btn} style={{ background: '#12d86d' }}>
-          Order without Login
-        </button>
+        <Link to="/login">
+          <button
+            className={styles.action_btn}
+            style={{ background: '#12d86d' }}
+          >
+            Order without Login
+          </button>
+        </Link>
         <button className={styles.action_btn} style={{ background: '#d8127d' }}>
           Add ✔
         </button>

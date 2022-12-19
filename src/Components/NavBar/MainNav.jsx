@@ -5,11 +5,16 @@ import SettingsIcon from '@mui/icons-material/Settings';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import LogoutIcon from '@mui/icons-material/Logout';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Popover, Typography } from '@mui/material';
+import { logOut } from '../../redux/slices/userSlice';
 
 function MainNav() {
   const { basket } = useSelector(state => state.basket);
+  const { userIn } = useSelector(state => state.users);
+  const dispatch = useDispatch();
+
+  console.log(userIn);
 
   let sumOfQuantities = 0;
   sumOfQuantities =
@@ -85,9 +90,14 @@ function MainNav() {
             </li>
           </Link>
           <li className={styles.content}>{sumOfQuantities}</li>
-          <li className={styles.right_element}>
-            <LogoutIcon />
-          </li>
+          {userIn && (
+            <li
+              className={styles.right_element}
+              onClick={() => dispatch(logOut())}
+            >
+              <LogoutIcon />
+            </li>
+          )}
         </ul>
       </section>
     </nav>

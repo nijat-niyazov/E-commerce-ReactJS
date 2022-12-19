@@ -12,12 +12,55 @@ import { Button, Typography } from '@mui/material';
 import styles from './Login.module.css';
 import GoogleIcon from '@mui/icons-material/Google';
 import FacebookIcon from '@mui/icons-material/Facebook';
+import Radio from '@mui/material/Radio';
+import RadioGroup from '@mui/material/RadioGroup';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import FormLabel from '@mui/material/FormLabel';
+import { useDispatch, useSelector } from 'react-redux';
+import { logIn, newUser } from '../../redux/slices/userSlice';
+import { toast } from 'react-toastify';
+import { Navigate } from 'react-router-dom';
 
 export default function LoginForm() {
   const [showPassword, setShowPassword] = useState(false);
   const [active, setActive] = useState(1);
   const [mail, setMail] = useState('');
   const [pas, setPas] = useState('');
+  const [sex, setSex] = useState(null);
+
+  const { users } = useSelector(state => state.users);
+
+  console.log(users);
+  console.log(active);
+
+  const dispatch = useDispatch();
+
+  const signUpNewUser = e => {
+    e.preventDefault();
+    if (active === 1) {
+      const attemtedUser = users.find(user => user.mail === mail);
+      console.log(attemtedUser);
+      if (attemtedUser.password === pas) {
+        toast.success('You logged in');
+        dispatch(logIn());
+      }
+    }
+    if (active === 0) {
+      dispatch(
+        newUser({
+          mail: mail,
+          password: pas,
+          gender: sex,
+        })
+      );
+    }
+  };
+
+  const genderMaker = e => {
+    setSex(e.target.value);
+  };
+
+  console.log(sex);
 
   const signIn = () => {
     if (active === 0) setActive(1);
@@ -50,7 +93,7 @@ export default function LoginForm() {
           borderRadius: '20px',
           p: '40px',
           width: 550,
-          height: 550,
+          height: '100%',
           backgroundColor: '#f8ecec ',
           // opacity: 0.9,
           margin: 'auto ',
@@ -75,7 +118,11 @@ export default function LoginForm() {
             Sign Up
           </Button>
         </div>
-        <div className="hoqq" style={{ marginLeft: '80px' }}>
+        <form
+          className="hoqq"
+          style={{ marginLeft: '80px' }}
+          onSubmit={signUpNewUser}
+        >
           <TextField
             sx={{ width: '80%', mt: '30px' }}
             onChange={e => setMail(e.target.value)}
@@ -85,6 +132,7 @@ export default function LoginForm() {
             placeholder="user123@gmail.com"
             type="search"
           />
+
           <FormControl sx={{ width: '80%', mt: '30px' }} variant="outlined">
             <InputLabel htmlFor="outlined-adornment-password">
               Password
@@ -109,6 +157,30 @@ export default function LoginForm() {
               value={pas}
             />
           </FormControl>
+          {active === 0 && (
+            <FormControl style={{ marginTop: '40px' }}>
+              <FormLabel id="demo-radio-buttons-group-label">Gender</FormLabel>
+              <RadioGroup
+                aria-labelledby="demo-radio-buttons-group-label"
+                defaultValue="female"
+                name="radio-buttons-group"
+              >
+                <FormControlLabel
+                  value="female"
+                  onClick={genderMaker}
+                  control={<Radio />}
+                  label="Female"
+                />
+                <FormControlLabel
+                  onClick={genderMaker}
+                  value="male"
+                  control={<Radio />}
+                  label="Male"
+                />
+              </RadioGroup>
+            </FormControl>
+          )}
+
           <Typography
             sx={{ mt: '30px', textDecoration: 'underline', cursor: 'pointer' }}
             variant="p"
@@ -128,15 +200,16 @@ export default function LoginForm() {
             variant="contained"
             color="success"
             disabled={!(mail && pas)}
+            type="submit"
           >
             {`Sign ${active === 1 ? 'In' : ' Up'}`}
           </Button>
+
           <div className={styles.login_with}>
             <a href="https://www.facebook.com">
               <Box
                 sx={{
                   display: 'flex',
-                  // justifyContent: 'space-between',
                   alignItems: 'center',
                   width: '80%',
                 }}
@@ -158,7 +231,7 @@ export default function LoginForm() {
               </Box>
             </a>
           </div>
-        </div>
+        </form>
       </Box>
     </div>
   );
