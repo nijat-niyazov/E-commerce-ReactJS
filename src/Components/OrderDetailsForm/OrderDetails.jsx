@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { addProduct, closeModal } from '../../redux/slices/basketSlice';
 import styles from './OrderDetails.module.css';
 import RemoveIcon from '@mui/icons-material/Remove';
@@ -9,6 +9,7 @@ import { toast } from 'react-toastify';
 
 function OrderDetails({ colors, price, sizes, stock, description, img, id }) {
   const [quantity, setQuantity] = useState(1);
+  const { basket } = useSelector(state => state.basket);
   const [coloritta, setColoritta] = useState(false);
   const [sizeOpt, setSizeOpt] = useState(false);
   const dispatch = useDispatch();
@@ -16,6 +17,15 @@ function OrderDetails({ colors, price, sizes, stock, description, img, id }) {
   // console.log(quantity);
 
   const addToBasket = () => {
+    const addedProduct = basket.some(product => product.id === id);
+
+    if (addedProduct) {
+      const tapdigim = basket.find(addenProduct => addenProduct.id === id);
+      return tapdigim.quantity + quantity;
+    }
+    console.log(id);
+    console.log(basket);
+    console.log(addedProduct);
     dispatch(
       addProduct({
         name: description,
@@ -29,7 +39,9 @@ function OrderDetails({ colors, price, sizes, stock, description, img, id }) {
     );
     dispatch(closeModal());
     toast.success(
-      `You added ${quantity} new ${quantity > 1 ? 'items' : 'item'} to basket!`
+      `You added ${quantity !== 1 ? quantity : 'a'} new item${
+        quantity > 1 ? 's' : ''
+      } to basket!`
     );
   };
 

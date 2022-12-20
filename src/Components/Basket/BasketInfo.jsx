@@ -10,6 +10,7 @@ import LoginForm from '../Login/Login';
 
 function BasketInfo() {
   const { basket } = useSelector(state => state.basket);
+  const { userIn } = useSelector(state => state.users);
   const dispatch = useDispatch();
 
   let sumOfQuantities = 0;
@@ -70,7 +71,7 @@ function BasketInfo() {
           <div className={styles.info_cont_right}>
             <ul>
               <li>{sumOfQuantities} </li>
-              <li>add Delivery addres </li>
+              <li>Add Delivery addres </li>
             </ul>
             <span>
               {totalPrice}
@@ -89,7 +90,7 @@ function BasketInfo() {
             className={styles.action_btn}
             style={{ background: '#12d86d' }}
           >
-            Order without Login
+            Order {userIn ? 'now' : 'without Login'}
           </button>
         </Link>
         <button className={styles.action_btn} style={{ background: '#d8127d' }}>

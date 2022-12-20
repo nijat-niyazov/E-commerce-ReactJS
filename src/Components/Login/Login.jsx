@@ -1,5 +1,10 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import styles from './Login.module.css';
 import Box from '@mui/material/Box';
+import { useDispatch, useSelector } from 'react-redux';
+import { logIn, newUser } from '../../redux/slices/userSlice';
+import { toast } from 'react-toastify';
 import TextField from '@mui/material/TextField';
 import IconButton from '@mui/material/IconButton';
 import OutlinedInput from '@mui/material/OutlinedInput';
@@ -9,40 +14,42 @@ import FormControl from '@mui/material/FormControl';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import { Button, Typography } from '@mui/material';
-import styles from './Login.module.css';
 import GoogleIcon from '@mui/icons-material/Google';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import Radio from '@mui/material/Radio';
 import RadioGroup from '@mui/material/RadioGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import FormLabel from '@mui/material/FormLabel';
-import { useDispatch, useSelector } from 'react-redux';
-import { logIn, newUser } from '../../redux/slices/userSlice';
-import { toast } from 'react-toastify';
-import { Navigate } from 'react-router-dom';
 
 export default function LoginForm() {
   const [showPassword, setShowPassword] = useState(false);
   const [active, setActive] = useState(1);
   const [mail, setMail] = useState('');
   const [pas, setPas] = useState('');
-  const [sex, setSex] = useState(null);
+  const [sex, setSex] = useState('male');
 
   const { users } = useSelector(state => state.users);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   console.log(users);
-  console.log(active);
-
-  const dispatch = useDispatch();
 
   const signUpNewUser = e => {
     e.preventDefault();
     if (active === 1) {
-      const attemtedUser = users.find(user => user.mail === mail);
-      console.log(attemtedUser);
-      if (attemtedUser.password === pas) {
-        toast.success('You logged in');
-        dispatch(logIn());
+      const registeredUser = users.some(user => user.mail === mail);
+      if (registeredUser) {
+        const attemtedUser = users.find(user => user.mail === mail);
+        console.log(attemtedUser);
+        if (attemtedUser.password === pas) {
+          toast.success('You logged in');
+          dispatch(logIn());
+          navigate('/');
+        } else {
+          toast.error('Your e-mail address and/or password is incorrect.');
+        }
+      } else {
+        toast.error('Your e-mail address and/or password is incorrect.');
       }
     }
     if (active === 0) {
@@ -59,8 +66,6 @@ export default function LoginForm() {
   const genderMaker = e => {
     setSex(e.target.value);
   };
-
-  console.log(sex);
 
   const signIn = () => {
     if (active === 0) setActive(1);
@@ -162,20 +167,20 @@ export default function LoginForm() {
               <FormLabel id="demo-radio-buttons-group-label">Gender</FormLabel>
               <RadioGroup
                 aria-labelledby="demo-radio-buttons-group-label"
-                defaultValue="female"
+                defaultValue="male"
                 name="radio-buttons-group"
               >
-                <FormControlLabel
-                  value="female"
-                  onClick={genderMaker}
-                  control={<Radio />}
-                  label="Female"
-                />
                 <FormControlLabel
                   onClick={genderMaker}
                   value="male"
                   control={<Radio />}
                   label="Male"
+                />
+                <FormControlLabel
+                  value="female"
+                  onClick={genderMaker}
+                  control={<Radio />}
+                  label="Female"
                 />
               </RadioGroup>
             </FormControl>
