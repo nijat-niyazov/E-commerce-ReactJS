@@ -28,10 +28,24 @@ export const basketSlice = createSlice({
     closeModal: state => {
       state.ordered = false;
     },
+    editQuantity: (state, action) => {
+      state.basket = state.basket.map(product => {
+        if (action.payload.id === product.id) {
+          product.quantity = action.payload.quantity;
+        }
+        return;
+      });
+    },
   },
 });
 
-export const { addProduct, clearBasket, deleteProduct, closeModal, openModaL } =
-  basketSlice.actions;
+export const {
+  addProduct,
+  clearBasket,
+  deleteProduct,
+  closeModal,
+  openModaL,
+  editQuantity,
+} = basketSlice.actions;
 
 export default basketSlice.reducer;

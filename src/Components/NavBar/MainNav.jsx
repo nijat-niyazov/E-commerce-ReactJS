@@ -82,11 +82,14 @@ function MainNav() {
             </li>
           </Link>
           <Link to="/basket">
-            <li className={styles.right_element}>
+            <li
+              style={{ position: 'relative' }}
+              className={styles.right_element}
+            >
               <ShoppingCartIcon />
+              <span className={styles.content}> {sumOfQuantities} </span>
             </li>
           </Link>
-          <li className={styles.content}>{sumOfQuantities}</li>
           {userIn && (
             <li className={styles.right_element} onClick={loggingOut}>
               <LogoutIcon />

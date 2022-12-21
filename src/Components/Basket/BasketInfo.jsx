@@ -6,7 +6,6 @@ import Button from '@mui/material/Button';
 import { clearBasket } from '../../redux/slices/basketSlice';
 import { toast } from 'react-toastify';
 import { Link } from 'react-router-dom';
-import LoginForm from '../Login/Login';
 
 function BasketInfo() {
   const { basket } = useSelector(state => state.basket);
@@ -17,7 +16,7 @@ function BasketInfo() {
   let totalPrice = 0;
 
   if (basket.length > 0) {
-    sumOfQuantities = basket.map(item => item.quantity).reduce((a, b) => a + b);
+    // sumOfQuantities = basket.map(item => item.quantity).reduce((a, b) => a + b);
 
     totalPrice = basket
       .map(item => item.price * item.quantity)

@@ -73,10 +73,9 @@ a {
 }
 
 .content {
-  /* content: "okay"; */
   position: absolute;
   top: 0px;
-  right: 76px;
+  right: 8px;
   background-color: #d8127d;
   color: white;
   padding: 1px 10px;

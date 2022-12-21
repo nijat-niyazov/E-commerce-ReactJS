@@ -9,23 +9,58 @@ import { toast } from 'react-toastify';
 
 function OrderDetails({ colors, price, sizes, stock, description, img, id }) {
   const [quantity, setQuantity] = useState(1);
-  const { basket } = useSelector(state => state.basket);
   const [coloritta, setColoritta] = useState(false);
   const [sizeOpt, setSizeOpt] = useState(false);
   const dispatch = useDispatch();
 
-  // console.log(quantity);
+  // const counts = {};
+  // const sampleArray = ['a', 'a', 'b', 'c', 'a'];
+
+  // console.log('a' == 'a');
+
+  // const abc = {
+  //   a: 'cart',
+  // };
+
+  // const abc2 = {
+  //   a: 'cart',
+  // };
+
+  // console.log(abc == abc2);
+
+  // sampleArray.forEach(x => (counts[x] = (counts[x] || 0) + 1));
+  // console.log(counts);
+
+  // ✅ Using bracket notation
+  // obj['num'] = obj['num'] + 1 || 1;
+  // console.log(obj.num); // 👉️ 3
 
   const addToBasket = () => {
-    const addedProduct = basket.some(product => product.id === id);
+    // const addedProduct = basket.some(product => product.id === id);
 
-    if (addedProduct) {
-      const tapdigim = basket.find(addenProduct => addenProduct.id === id);
-      return tapdigim.quantity + quantity;
-    }
-    console.log(id);
-    console.log(basket);
-    console.log(addedProduct);
+    // console.log(addedProduct);
+
+    // if (addedProduct) {
+    //   const tapdigim = basket.find(addenProduct => addenProduct.id === id);
+    //   console.log(tapdigim);
+
+    //   Object.defineProperties(tapdigim, {
+    //     quantity: {
+    //       value: quantity,
+    //       writable: true,
+    //     },
+    //   });
+
+    //   tapdigim.quantity = tapdigim.quantity + quantity;
+
+    //   console.log(tapdigim.quantity); // 👉️ "Austria"
+
+    //   // console.log((tapdigim. = tapdigim.quantity + 1 || 1));
+    // }
+    // // console.log(id);
+    // // console.log(basket);
+    // // console.log(addedProduct);
+    // if (!addedProduct)
     dispatch(
       addProduct({
         name: description,
@@ -35,6 +70,7 @@ function OrderDetails({ colors, price, sizes, stock, description, img, id }) {
         quantity: quantity,
         image: img,
         id: id,
+        stock: stock,
       })
     );
     dispatch(closeModal());

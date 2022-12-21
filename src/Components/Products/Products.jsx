@@ -29,6 +29,7 @@ function Products() {
     <div className={styles.products_cont}>
       {(query || filtered.length > 1 ? filtered : products).map(
         (product, i) => (
+          // console.log(product)
           <ProductItem key={i} {...product} />
         )
       )}
