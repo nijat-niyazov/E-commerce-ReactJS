@@ -3,6 +3,7 @@ import { createSlice } from '@reduxjs/toolkit';
 const initialState = {
   basket: [],
   ordered: false,
+  quantity: 1,
 };
 
 export const basketSlice = createSlice({
@@ -21,19 +22,25 @@ export const basketSlice = createSlice({
     clearBasket: state => {
       state.basket = [];
     },
-
+    increaseQuantity: state => {
+      state.quantity++;
+    },
+    decreaseQuantity: state => {
+      state.quantity--;
+    },
     openModaL: state => {
       state.ordered = true;
     },
     closeModal: state => {
       state.ordered = false;
+      state.quantity = 1;
     },
     editQuantity: (state, action) => {
       state.basket = state.basket.map(product => {
         if (action.payload.id === product.id) {
-          product.quantity = action.payload.quantity;
+          product.quantity = action.payload;
         }
-        return;
+        return product;
       });
     },
   },
@@ -46,6 +53,8 @@ export const {
   closeModal,
   openModaL,
   editQuantity,
+  increaseQuantity,
+  decreaseQuantity,
 } = basketSlice.actions;
 
 export default basketSlice.reducer;

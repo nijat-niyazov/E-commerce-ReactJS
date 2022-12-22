@@ -32,8 +32,6 @@ export default function LoginForm() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  console.log(users);
-
   const signUpNewUser = e => {
     e.preventDefault();
     if (active === 1) {
@@ -42,7 +40,7 @@ export default function LoginForm() {
         const attemtedUser = users.find(user => user.mail === mail);
         console.log(attemtedUser);
         if (attemtedUser.password === pas) {
-          toast.success('You logged in');
+          toast.success('You succesfully logged in');
           dispatch(logIn());
           navigate('/');
         } else {
@@ -60,6 +58,7 @@ export default function LoginForm() {
           gender: sex,
         })
       );
+      toast.success('You succesfully signed up');
     }
   };
 

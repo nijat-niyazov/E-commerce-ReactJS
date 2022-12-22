@@ -1,6 +1,11 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { addProduct, closeModal } from '../../redux/slices/basketSlice';
+import {
+  addProduct,
+  closeModal,
+  decreaseQuantity,
+  increaseQuantity,
+} from '../../redux/slices/basketSlice';
 import styles from './OrderDetails.module.css';
 import RemoveIcon from '@mui/icons-material/Remove';
 import AddIcon from '@mui/icons-material/Add';
@@ -8,7 +13,7 @@ import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 import { toast } from 'react-toastify';
 
 function OrderDetails({ colors, price, sizes, stock, description, img, id }) {
-  const [quantity, setQuantity] = useState(1);
+  const { quantity } = useSelector(state => state.basket);
   const [coloritta, setColoritta] = useState(false);
   const [sizeOpt, setSizeOpt] = useState(false);
   const dispatch = useDispatch();
@@ -81,6 +86,16 @@ function OrderDetails({ colors, price, sizes, stock, description, img, id }) {
     );
   };
 
+  const changeQuantity = e => {
+    e.target.value === '+'
+      ? quantity === stock
+        ? toast.info('You reached stock')
+        : dispatch(increaseQuantity())
+      : quantity < 2
+      ? toast.info('At least one item')
+      : dispatch(decreaseQuantity());
+  };
+
   return (
     <div className={styles.modal}>
       <div className={styles.modal_inner}>
@@ -136,28 +151,20 @@ function OrderDetails({ colors, price, sizes, stock, description, img, id }) {
         <div className={styles.quantity}>
           <button
             className={styles.quantity_icon}
-            onClick={() => {
-              if (quantity < 2) return;
-              else {
-                setQuantity(quantity => quantity - 1);
-              }
-            }}
-            disabled={!coloritta || !sizeOpt}
+            value="-"
+            onClick={e => changeQuantity(e)}
+            disabled={!coloritta || !sizeOpt || quantity === 1}
           >
-            <RemoveIcon />
+            {/* <RemoveIcon /> */}-
           </button>
           <span disabled={!coloritta || !sizeOpt}>{quantity}</span>
           <button
             className={styles.quantity_icon}
-            disabled={!coloritta || !sizeOpt}
-            onClick={() => {
-              if (quantity === stock) return;
-              else {
-                setQuantity(quantity => quantity + 1);
-              }
-            }}
+            value="+"
+            onClick={e => changeQuantity(e)}
+            disabled={!coloritta || !sizeOpt || quantity === stock}
           >
-            <AddIcon />
+            {/* <AddIcon /> */}+
           </button>
         </div>
 

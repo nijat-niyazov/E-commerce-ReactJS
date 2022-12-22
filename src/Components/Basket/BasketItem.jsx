@@ -23,13 +23,13 @@ function BasketItem(props) {
     );
   };
 
+  const submitHandle = e => {
+    e.preventDefault();
+  };
+
   const editingQuantity = id => {
-    setBasketQuan(basketQuan => basketQuan + 1);
-    console.log(id);
-    console.log(basketQuan);
     dispatch(
       editQuantity({
-        id: id,
         quantity: basketQuan,
       })
     );
@@ -45,11 +45,11 @@ function BasketItem(props) {
             <h4>{name}</h4>
             <p>Color: {color} </p>
             <p>Size: {size} </p>
-            <p>Quantity: {basketQuan} </p>
+            <p>Quantity: {quantity} </p>
           </div>
         </section>
 
-        <section>
+        <form onSubmit={submitHandle}>
           <Stack
             spacing={2}
             direction="row"
@@ -68,6 +68,7 @@ function BasketItem(props) {
                 if (basketQuan === 1) return;
                 setBasketQuan(basketQuan - 1);
               }}
+              disabled={basketQuan === 1}
             >
               <RemoveIcon />
             </Button>
@@ -78,13 +79,17 @@ function BasketItem(props) {
               variant="contained"
               onClick={() => {
                 if (basketQuan === stock) return;
+                setBasketQuan(basketQuan + 1);
+                console.log(id);
                 editingQuantity(id);
               }}
+              disabled={basketQuan === stock}
             >
               <AddIcon />
             </Button>
+            <button> okay</button>
           </Stack>
-        </section>
+        </form>
 
         <section className={styles.right}>
           <button
@@ -96,7 +101,7 @@ function BasketItem(props) {
             <HighlightOffIcon />
           </button>
           <div className={styles.price_cont}>
-            <span className={styles.price}>{price * basketQuan}</span>
+            <span className={styles.price}>{price * quantity}</span>
             <img
               src="https://www.meshque.com/img/aznPink.svg"
               style={{ width: '12px', height: '10px' }}
