@@ -16,6 +16,8 @@ function BasketItem(props) {
   const [basketQuan, setBasketQuan] = useState(quantity);
   const dispatch = useDispatch();
 
+  console.log(basketQuan);
+
   const deleteHandle = id => {
     dispatch(deleteProduct(id));
     toast.error(
@@ -27,9 +29,17 @@ function BasketItem(props) {
     e.preventDefault();
   };
 
-  const editingQuantity = id => {
+  const editingQuantity = (e, id) => {
+    if (e.target.value === 'remove')
+      setBasketQuan(b => b - 1) && console.log(basketQuan);
+    if (e.target.value === 'add')
+      setBasketQuan(b => b + 1) && console.log(basketQuan);
+
+    if (e.target.value === 'undefined') console.log(basketQuan);
+
     dispatch(
       editQuantity({
+        id: id,
         quantity: basketQuan,
       })
     );
@@ -64,10 +74,11 @@ function BasketItem(props) {
               size="small"
               color="error"
               variant="contained"
-              onClick={() => {
-                if (basketQuan === 1) return;
-                setBasketQuan(basketQuan - 1);
-              }}
+              value="remove"
+              onClick={e => editingQuantity(e, id)}
+              // if (basketQuan === 1) return;
+              // setBasketQuan(b => b - 1);
+              // console.log(e.target.value);
               disabled={basketQuan === 1}
             >
               <RemoveIcon />
@@ -77,12 +88,14 @@ function BasketItem(props) {
               size="small"
               color="success"
               variant="contained"
-              onClick={() => {
-                if (basketQuan === stock) return;
-                setBasketQuan(basketQuan + 1);
-                console.log(id);
-                editingQuantity(id);
-              }}
+              value="add"
+              onClick={e => editingQuantity(e, id)}
+              // onClick={e => {
+              //   // if (basketQuan === stock) return;
+              //   setBasketQuan(b => b + 1);
+              //   // console.log(id);
+              //   editingQuantity(id);
+              // }}
               disabled={basketQuan === stock}
             >
               <AddIcon />

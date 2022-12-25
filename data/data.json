@@ -36,7 +36,7 @@
       "id": 1,
       "colors": ["Green", "White", "Grey", "Yellow", "Orange", "Blue"],
       "sizes": ["XS", "S", "M", "L", "XL"],
-      "stock": 3
+      "stock": 4
     },
     {
       "mainImg": "https://meshque.com/cdn/storage/product_images/yYwpAk2bL95WmCgcL/fullHD/yYwpAk2bL95WmCgcL.jpeg",
@@ -56,7 +56,7 @@
       "id": 2,
       "colors": ["Green", "White", "Grey", "Yellow", "Orange", "Blue"],
       "sizes": ["XS", "S", "M", "L", "XL"],
-      "stock": 3
+      "stock": 4
     },
 
     {
@@ -74,10 +74,10 @@
       "hoverImg": "https://meshque.com/cdn/storage/product_images/yYwpAk2bL95WmCgcL/fullHD/yYwpAk2bL95WmCgcL.jpeg",
       "description": "hat",
       "price": "63",
-      "id": 3,
+      "id": 4,
       "colors": ["Green", "White", "Grey", "Yellow", "Orange", "Blue"],
       "sizes": ["XS", "S", "M", "L", "XL"],
-      "stock": 3
+      "stock": 4
     },
     {
       "mainImg": "https://meshque.com/cdn/storage/product_images/7sJLaCE8E8NqKtsPh/fullHD/7sJLaCE8E8NqKtsPh.jpeg",
@@ -97,7 +97,7 @@
       "id": 4,
       "colors": ["Green", "White", "Grey", "Yellow", "Orange", "Blue"],
       "sizes": ["XS", "S", "M", "L", "XL"],
-      "stock": 3
+      "stock": 4
     },
     {
       "mainImg": "https://meshque.com/cdn/storage/product_images/3RzwdkFctei5wnpCx/fullHD/3RzwdkFctei5wnpCx.jpeg",
@@ -117,7 +117,7 @@
       "id": 5,
       "colors": ["Green", "White", "Grey", "Yellow", "Orange", "Blue"],
       "sizes": ["XS", "S", "M", "L", "XL"],
-      "stock": 3
+      "stock": 4
     },
     {
       "mainImg": "https://meshque.com/cdn/storage/product_images/HeeE6vC9TpcueYh84/fullHD/HeeE6vC9TpcueYh84.jpeg",
@@ -137,7 +137,7 @@
       "id": 6,
       "colors": ["Green", "White", "Grey", "Yellow", "Orange", "Blue"],
       "sizes": ["XS", "S", "M", "L", "XL"],
-      "stock": 3
+      "stock": 4
     },
     {
       "mainImg": "https://meshque.com/cdn/storage/product_images/yYwpAk2bL95WmCgcL/fullHD/yYwpAk2bL95WmCgcL.jpeg",
@@ -157,7 +157,7 @@
       "id": 7,
       "colors": ["Green", "White", "Grey", "Yellow", "Orange", "Blue"],
       "sizes": ["XS", "S", "M", "L", "XL"],
-      "stock": 3
+      "stock": 4
     },
     {
       "mainImg": "https://meshque.com/cdn/storage/product_images/z4dj2AF6usXxFLMBN/fullHD/z4dj2AF6usXxFLMBN.jpeg",
@@ -177,7 +177,7 @@
       "id": 8,
       "colors": ["Green", "White", "Grey", "Yellow", "Orange", "Blue"],
       "sizes": ["XS", "S", "M", "L", "XL"],
-      "stock": 3
+      "stock": 4
     }
   ],
   "countries": [

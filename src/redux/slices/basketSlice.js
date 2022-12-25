@@ -38,7 +38,8 @@ export const basketSlice = createSlice({
     editQuantity: (state, action) => {
       state.basket = state.basket.map(product => {
         if (action.payload.id === product.id) {
-          product.quantity = action.payload;
+          product.quantity = action.payload.quantity;
+          // console.log(product.quantity, action.payload.quantity);
         }
         return product;
       });
