@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 import { useDispatch } from 'react-redux';
 import { deleteProduct, editQuantity } from '../../redux/slices/basketSlice';
@@ -8,15 +8,12 @@ import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
-import { useState } from 'react';
 
 function BasketItem(props) {
   const { color, image, name, price, quantity, size, id, stock } = props;
 
   const [basketQuan, setBasketQuan] = useState(quantity);
   const dispatch = useDispatch();
-
-  console.log(basketQuan);
 
   const deleteHandle = id => {
     dispatch(deleteProduct(id));
@@ -25,17 +22,8 @@ function BasketItem(props) {
     );
   };
 
-  const submitHandle = e => {
+  const submitHandle = (e, id) => {
     e.preventDefault();
-  };
-
-  const editingQuantity = (e, id) => {
-    if (e.target.value === 'remove')
-      setBasketQuan(b => b - 1) && console.log(basketQuan);
-    if (e.target.value === 'add')
-      setBasketQuan(b => b + 1) && console.log(basketQuan);
-
-    if (e.target.value === 'undefined') console.log(basketQuan);
 
     dispatch(
       editQuantity({
@@ -59,7 +47,7 @@ function BasketItem(props) {
           </div>
         </section>
 
-        <form onSubmit={submitHandle}>
+        <form onSubmit={e => submitHandle(e, id)}>
           <Stack
             spacing={2}
             direction="row"
@@ -75,10 +63,7 @@ function BasketItem(props) {
               color="error"
               variant="contained"
               value="remove"
-              onClick={e => editingQuantity(e, id)}
-              // if (basketQuan === 1) return;
-              // setBasketQuan(b => b - 1);
-              // console.log(e.target.value);
+              onClick={() => setBasketQuan(b => b - 1)}
               disabled={basketQuan === 1}
             >
               <RemoveIcon />
@@ -89,13 +74,7 @@ function BasketItem(props) {
               color="success"
               variant="contained"
               value="add"
-              onClick={e => editingQuantity(e, id)}
-              // onClick={e => {
-              //   // if (basketQuan === stock) return;
-              //   setBasketQuan(b => b + 1);
-              //   // console.log(id);
-              //   editingQuantity(id);
-              // }}
+              onClick={() => setBasketQuan(b => b + 1)}
               disabled={basketQuan === stock}
             >
               <AddIcon />
