@@ -11,7 +11,6 @@ import RemoveIcon from '@mui/icons-material/Remove';
 
 function BasketItem(props) {
   const { color, image, name, price, quantity, size, id, stock } = props;
-
   const [basketQuan, setBasketQuan] = useState(quantity);
   const dispatch = useDispatch();
 
