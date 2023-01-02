@@ -16,9 +16,7 @@ function BasketInfo() {
   let totalPrice = 0;
 
   if (basket.length > 0) {
-    sumOfQuantities = basket
-      .map(item => item.quantity)
-      .reduce((a, b) => a + b);
+    sumOfQuantities = basket.map(item => item.quantity).reduce((a, b) => a + b);
 
     totalPrice = basket
       .map(item => item.price * item.quantity)
@@ -94,9 +92,14 @@ function BasketInfo() {
             Order {userIn ? 'now' : 'without Login'}
           </button>
         </Link>
-        <button className={styles.action_btn} style={{ background: '#d8127d' }}>
-          Add ✔
-        </button>
+        <Link to="/">
+          <button
+            className={styles.action_btn}
+            style={{ background: '#d8127d' }}
+          >
+            Add ✔
+          </button>
+        </Link>
       </section>
     </div>
   );

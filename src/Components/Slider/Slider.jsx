@@ -6,7 +6,23 @@ import { setSlider } from '../../redux/slices/sliderSlice';
 import useFetch from '../../utils/useFetch';
 
 function Slider() {
-  const { data: slider } = useFetch('slider');
+  // const { data2: slider } = useFetch('slider');
+  // const dispatch = useDispatch();
+  // dispatch(setSlider(slider));
+
+  const { sliderItems } = useSelector(state => state.slider);
+  const dispatch = useDispatch();
+
+  const calling = () => {
+    const fetchingImgs = async () => {
+      const res = await fetch('http://localhost:8000/slider');
+      const data = await res.json();
+      dispatch(setSlider(data));
+    };
+    fetchingImgs();
+  };
+
+  useEffect(() => calling(), []);
 
   return (
     <Carousel
@@ -39,7 +55,7 @@ function Slider() {
         },
       }}
     >
-      {slider.map((item, i) => (
+      {sliderItems.map((item, i) => (
         <SliderItem key={i} {...item} />
       ))}
     </Carousel>

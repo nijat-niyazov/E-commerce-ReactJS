@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 import { useDispatch } from 'react-redux';
 import { deleteProduct, editQuantity } from '../../redux/slices/basketSlice';
@@ -36,8 +37,9 @@ function BasketItem(props) {
     <div className={styles.basket}>
       <article className={styles.item}>
         <section className={styles.left}>
-          <img className={styles.item_img} src={image} alt={image} />
-
+          <Link to={`/item/${id}`}>
+            <img className={styles.item_img} src={image} alt={image} />
+          </Link>
           <div>
             <h4>{name}</h4>
             <p>Color: {color} </p>

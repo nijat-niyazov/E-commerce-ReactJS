@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import styles from './Login.module.css';
-import Box from '@mui/material/Box';
 import { useDispatch, useSelector } from 'react-redux';
+import LoginWithAccs from './LoginWithAccs';
 import { logIn, newUser } from '../../redux/slices/userSlice';
 import { toast } from 'react-toastify';
+
+import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import IconButton from '@mui/material/IconButton';
 import OutlinedInput from '@mui/material/OutlinedInput';
@@ -14,35 +15,34 @@ import FormControl from '@mui/material/FormControl';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import { Button, Typography } from '@mui/material';
-import GoogleIcon from '@mui/icons-material/Google';
-import FacebookIcon from '@mui/icons-material/Facebook';
 import Radio from '@mui/material/Radio';
 import RadioGroup from '@mui/material/RadioGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import FormLabel from '@mui/material/FormLabel';
 
 export default function LoginForm() {
-  const [showPassword, setShowPassword] = useState(false);
-  const [active, setActive] = useState(1);
-  const [mail, setMail] = useState('');
-  const [pas, setPas] = useState('');
-  const [sex, setSex] = useState('male');
-
   const { users } = useSelector(state => state.users);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const [active, setActive] = useState('in');
+  const [sex, setSex] = useState('male');
+  const [mail, setMail] = useState('');
+  const [pas, setPas] = useState('');
+  const [secPas, setSecPas] = useState('');
 
   const signUpNewUser = e => {
     e.preventDefault();
-    if (active === 1) {
+    if (active === 'in') {
       const registeredUser = users.some(user => user.mail === mail);
       if (registeredUser) {
         const attemtedUser = users.find(user => user.mail === mail);
-        console.log(attemtedUser);
         if (attemtedUser.password === pas) {
-          toast.success('You succesfully logged in');
-          dispatch(logIn());
-          navigate('/');
+          console.log(pas, secPas);
+          if (pas === secPas) {
+            toast.success('You succesfully logged in');
+            dispatch(logIn());
+            navigate('/');
+          }
         } else {
           toast.error('Your e-mail address and/or password is incorrect.');
         }
@@ -50,7 +50,7 @@ export default function LoginForm() {
         toast.error('Your e-mail address and/or password is incorrect.');
       }
     }
-    if (active === 0) {
+    if (active === 'up') {
       dispatch(
         newUser({
           mail: mail,
@@ -62,21 +62,15 @@ export default function LoginForm() {
     }
   };
 
-  const genderMaker = e => {
-    setSex(e.target.value);
+  const signIn = e => {
+    e.target.value === 'in' ? setActive('in') : setActive('up');
   };
 
-  const signIn = () => {
-    if (active === 0) setActive(1);
-  };
-  const signUp = () => {
-    if (active === 1) setActive(0);
-  };
-
+  // Password Issues ⤵
+  const [showPassword, setShowPassword] = useState(false);
   const handleClickShowPassword = () => setShowPassword(show => !show);
-
-  const handleMouseDownPassword = event => {
-    event.preventDefault();
+  const handleMouseDownPassword = e => {
+    e.preventDefault();
   };
 
   return (
@@ -99,7 +93,6 @@ export default function LoginForm() {
           width: 550,
           height: '100%',
           backgroundColor: '#f8ecec ',
-          // opacity: 0.9,
           margin: 'auto ',
         }}
       >
@@ -107,15 +100,15 @@ export default function LoginForm() {
           <Button
             variant="contained"
             color="success"
-            onClick={signIn}
-            value={active}
+            onClick={e => signIn(e)}
+            value="in"
           >
             Sign In
           </Button>
 
           <Button
-            onClick={signUp}
-            value={active}
+            onClick={e => signIn(e)}
+            value="up"
             variant="contained"
             color="secondary"
           >
@@ -134,7 +127,7 @@ export default function LoginForm() {
             id="outlined-search"
             label="Email addres"
             placeholder="user123@gmail.com"
-            type="search"
+            type="email"
           />
 
           <FormControl sx={{ width: '80%', mt: '30px' }} variant="outlined">
@@ -161,7 +154,23 @@ export default function LoginForm() {
               value={pas}
             />
           </FormControl>
-          {active === 0 && (
+
+          {active === 'up' && (
+            <FormControl sx={{ width: '80%', mt: '30px' }} variant="outlined">
+              <InputLabel htmlFor="outlined-adornment-password">
+                Confirm Password
+              </InputLabel>
+              <OutlinedInput
+                id="outlined-adornment-password"
+                type="password"
+                endAdornment={<InputAdornment position="end"></InputAdornment>}
+                label="Confirm Password"
+                onChange={e => setSecPas(e.target.value)}
+                value={secPas}
+              />
+            </FormControl>
+          )}
+          {active === 'up' && (
             <FormControl style={{ marginTop: '40px' }}>
               <FormLabel id="demo-radio-buttons-group-label">Gender</FormLabel>
               <RadioGroup
@@ -170,14 +179,14 @@ export default function LoginForm() {
                 name="radio-buttons-group"
               >
                 <FormControlLabel
-                  onClick={genderMaker}
+                  onClick={e => setSex(e.target.value)}
                   value="male"
                   control={<Radio />}
                   label="Male"
                 />
                 <FormControlLabel
                   value="female"
-                  onClick={genderMaker}
+                  onClick={e => setSex(e.target.value)}
                   control={<Radio />}
                   label="Female"
                 />
@@ -185,13 +194,20 @@ export default function LoginForm() {
             </FormControl>
           )}
 
-          <Typography
-            sx={{ mt: '30px', textDecoration: 'underline', cursor: 'pointer' }}
-            variant="p"
-            component="p"
-          >
-            Forgot Password?
-          </Typography>
+          {active === 'in' && (
+            <Typography
+              sx={{
+                mt: '30px',
+                textDecoration: 'underline',
+                cursor: 'pointer',
+              }}
+              variant="p"
+              component="p"
+            >
+              Forgot Password?
+            </Typography>
+          )}
+
           <Button
             sx={{
               mt: '30px',
@@ -206,35 +222,9 @@ export default function LoginForm() {
             disabled={!(mail && pas)}
             type="submit"
           >
-            {`Sign ${active === 1 ? 'In' : ' Up'}`}
+            {`Sign ${active === 'in' ? 'In' : ' Up'}`}
           </Button>
-
-          <div className={styles.login_with}>
-            <a href="https://www.facebook.com">
-              <Box
-                sx={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  width: '80%',
-                }}
-              >
-                <FacebookIcon />
-                <p>Login with facebook</p>
-              </Box>
-            </a>
-            <a href="https://www.google.com">
-              <Box
-                sx={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  width: '80%',
-                }}
-              >
-                <GoogleIcon />
-                <p>Login with Google</p>
-              </Box>
-            </a>
-          </div>
+          {active === 'in' && <LoginWithAccs />}
         </form>
       </Box>
     </div>

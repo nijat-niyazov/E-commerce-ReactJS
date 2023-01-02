@@ -13,7 +13,6 @@ const SearchBar = () => {
   const route = useLocation();
 
   const clearQuery = () => dispatch(searchQuery(''));
-
   useEffect(() => {
     clearQuery();
   }, [route.pathname]);
