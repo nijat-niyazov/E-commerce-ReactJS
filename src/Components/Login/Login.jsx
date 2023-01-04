@@ -37,12 +37,9 @@ export default function LoginForm() {
       if (registeredUser) {
         const attemtedUser = users.find(user => user.mail === mail);
         if (attemtedUser.password === pas) {
-          console.log(pas, secPas);
-          if (pas === secPas) {
-            toast.success('You succesfully logged in');
-            dispatch(logIn());
-            navigate('/');
-          }
+          toast.success('You succesfully logged in');
+          dispatch(logIn());
+          navigate('/') && window.location.reload(true);
         } else {
           toast.error('Your e-mail address and/or password is incorrect.');
         }
@@ -51,14 +48,19 @@ export default function LoginForm() {
       }
     }
     if (active === 'up') {
-      dispatch(
-        newUser({
-          mail: mail,
-          password: pas,
-          gender: sex,
-        })
-      );
-      toast.success('You succesfully signed up');
+      console.log(pas, secPas);
+      if (pas === secPas) {
+        dispatch(
+          newUser({
+            mail: mail,
+            password: pas,
+            gender: sex,
+          })
+        );
+        toast.success('You succesfully signed up');
+      } else {
+        toast.info('Something Went Wrong :(') && window.location.reload(true);
+      }
     }
   };
 

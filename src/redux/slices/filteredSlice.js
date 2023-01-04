@@ -12,8 +12,11 @@ const filteredSlice = createSlice({
     searchQuery(state, action) {
       state.query = action.payload;
     },
+    clearQuery(state) {
+      state.query = '';
+    },
   },
 });
 
-export const { setFiltered, searchQuery } = filteredSlice.actions;
+export const { setFiltered, searchQuery, clearQuery } = filteredSlice.actions;
 export default filteredSlice.reducer;

@@ -20,27 +20,23 @@ function OrderDetails({ colors, price, sizes, stock, description, img, id }) {
 
   const addToBasket = () => {
     const addedProduct = basket.some(product => product.id === id);
-
-    // console.log(addedProduct);
-
     if (addedProduct) {
       const tapdigim = basket.find(addenProduct => addenProduct.id === id);
       console.log(tapdigim);
     }
 
-    if (!addedProduct)
-      dispatch(
-        addProduct({
-          name: description,
-          size: sizeOpt,
-          color: coloritta,
-          price: price,
-          quantity: quantity,
-          image: img,
-          id: id,
-          stock: stock,
-        })
-      );
+    dispatch(
+      addProduct({
+        name: description,
+        size: sizeOpt,
+        color: coloritta,
+        price: price,
+        quantity: quantity,
+        image: img,
+        id: id,
+        stock: stock,
+      })
+    );
     dispatch(closeModal());
     toast.success(
       `You added ${quantity !== 1 ? quantity : 'a'} new item${
@@ -49,15 +45,15 @@ function OrderDetails({ colors, price, sizes, stock, description, img, id }) {
     );
   };
 
-  const changeQuantity = e => {
-    e.target.value === '+'
-      ? quantity === stock
-        ? toast.info('You reached stock')
-        : dispatch(increaseQuantity())
-      : quantity < 2
-      ? toast.info('At least one item')
-      : dispatch(decreaseQuantity());
-  };
+  // const changeQuantity = e => {
+  //   e.target.value === '+'
+  //     ? quantity === stock
+  //       ? toast.info('You reached stock')
+  //       : dispatch(increaseQuantity())
+  //     : quantity < 2
+  //     ? toast.info('At least one item')
+  //     : dispatch(decreaseQuantity());
+  // };
 
   return (
     <div className={styles.modal}>
@@ -115,19 +111,19 @@ function OrderDetails({ colors, price, sizes, stock, description, img, id }) {
           <button
             className={styles.quantity_icon}
             value="-"
-            onClick={e => changeQuantity(e)}
+            onClick={() => dispatch(decreaseQuantity())}
             disabled={!coloritta || !sizeOpt || quantity === 1}
           >
-            {/* <RemoveIcon /> */}-
+            <RemoveIcon />
           </button>
           <span disabled={!coloritta || !sizeOpt}>{quantity}</span>
           <button
             className={styles.quantity_icon}
             value="+"
-            onClick={e => changeQuantity(e)}
+            onClick={() => dispatch(increaseQuantity())}
             disabled={!coloritta || !sizeOpt || quantity === stock}
           >
-            {/* <AddIcon /> */}+
+            <AddIcon />
           </button>
         </div>
 

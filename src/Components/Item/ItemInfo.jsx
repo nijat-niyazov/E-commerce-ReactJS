@@ -47,10 +47,7 @@ function ItemInfo({ colors, description, id, mainImg, price, sizes, stock }) {
                 backgroundColor: `${oneColor}`,
               }}
               value={oneColor}
-              onClick={e => {
-                console.log(e.target);
-                setColoritta(e.target.value);
-              }}
+              onClick={e => setColoritta(e.target.value)}
             ></button>
           );
         })}
@@ -63,10 +60,7 @@ function ItemInfo({ colors, description, id, mainImg, price, sizes, stock }) {
               key={i}
               className={styles.size}
               value={oneSize}
-              onClick={e => {
-                console.log(e.target.value);
-                setSizeOpt(e.target.value);
-              }}
+              onClick={e => setSizeOpt(e.target.value)}
             >
               {oneSize}
             </button>

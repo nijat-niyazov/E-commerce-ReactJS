@@ -1,17 +1,13 @@
 import { useState, useEffect } from 'react';
 
 const useFetch = url => {
-  const [data, setData2] = useState([]);
+  const [data, setData] = useState([]);
 
   useEffect(() => {
     const fetchData = async url2 => {
-      const res = await fetch(`http://localhost:8000/${url2}`);
+      const res = await fetch(url2);
       const dataRes = await res.json();
-      if (dataRes) {
-        setData2(dataRes);
-      } else {
-        alert('somethign went wrong');
-      }
+      dataRes !== null ? setData(dataRes) : alert('somethign went wrong');
     };
     fetchData(url);
   }, [url]);

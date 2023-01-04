@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import styles from './Item.module.css';
 import ItemInfo from './ItemInfo';
 
@@ -12,7 +12,7 @@ function ItemImgs({
   stock,
   productImages,
 }) {
-  const exi = {
+  const productInfo = {
     colors,
     description,
     id,
@@ -25,10 +25,11 @@ function ItemImgs({
   const [indexOfImg, setIndexOfImg] = useState(0);
 
   const getID = e => {
+    console.log(e.target);
+    console.log(e.target.id);
     setIndexOfImg(e.target.id);
-    console.log(e.target.classList);
 
-    e.target.classList.add('mystyle');
+    // e.target.classList.add('mystyle');
   };
 
   return (
@@ -72,7 +73,7 @@ function ItemImgs({
       </section>
 
       <section>
-        <ItemInfo {...exi} />
+        <ItemInfo {...productInfo} />
       </section>
     </div>
   );

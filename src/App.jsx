@@ -14,7 +14,7 @@ const Contact = lazy(() => import('./Components/Footer/FootPages/Contact'));
 const Privacy = lazy(() => import('./Components/Footer/FootPages/Privacy'));
 const Shipping = lazy(() => import('./Components/Footer/FootPages/Shipping'));
 const Return = lazy(() => import('./Components/Footer/FootPages/Return'));
-const LoginForm = lazy(() => import('./Components/Login/Login'));
+const Login = lazy(() => import('./Components/Login/Login'));
 const Basket = lazy(() => import('./Components/Basket/Basket'));
 const Favorites = lazy(() => import('./Components/Favorites/Favorites'));
 const Item = lazy(() => import('./Components/Item/Item'));
@@ -54,7 +54,7 @@ function App() {
       <Suspense fallback={<LoadingSpinner />}>
         <Routes>
           <Route element={<Home />} path="/" />
-          <Route element={<LoginForm />} path="/login" />
+          <Route element={<Login />} path="/login" />
           <Route element={<About />} path="/about" />
           <Route element={<Privacy />} path="/privacy" />
           <Route element={<Shipping />} path="/shipping" />

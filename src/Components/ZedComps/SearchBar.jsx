@@ -3,18 +3,23 @@ import TextField from '@mui/material/TextField';
 import SearchIcon from '@mui/icons-material/Search';
 import IconButton from '@mui/material/IconButton';
 import { useDispatch, useSelector } from 'react-redux';
-import { searchQuery, setFiltered } from '../../redux/slices/filteredSlice';
+import {
+  setFiltered,
+  searchQuery,
+  clearQuery,
+} from '../../redux/slices/filteredSlice';
 import { useLocation } from 'react-router-dom';
+import useFetch from '../../utils/useFetch';
 
 const SearchBar = () => {
-  const { products } = useSelector(state => state.products);
+  const { data } = useFetch('../data/data.json');
+  const { products } = data;
   const { query } = useSelector(state => state.filtered);
   const dispatch = useDispatch();
   const route = useLocation();
 
-  const clearQuery = () => dispatch(searchQuery(''));
   useEffect(() => {
-    clearQuery();
+    dispatch(clearQuery());
   }, [route.pathname]);
 
   const findProduct = searchedQuery => {
@@ -23,7 +28,7 @@ const SearchBar = () => {
     } else {
       dispatch(
         setFiltered(
-          products.filter(p =>
+          products?.filter(p =>
             p.description.toLowerCase().includes(searchedQuery)
           )
         )

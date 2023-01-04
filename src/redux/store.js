@@ -1,6 +1,4 @@
 import { configureStore } from '@reduxjs/toolkit';
-import sliderReducer from './slices/sliderSlice';
-import productsReducer from './slices/productsSlice';
 import basketReducer from './slices/basketSlice';
 import favoriteReducer from './slices/favoriteSlice';
 import filteredReducer from './slices/filteredSlice';
@@ -23,17 +21,13 @@ const persistConfig = {
   storage,
 };
 
-const persistedSlider = persistReducer(persistConfig, sliderReducer);
 const persistedBasket = persistReducer(persistConfig, basketReducer);
 const persistedFavorite = persistReducer(persistConfig, favoriteReducer);
-const persistedProducts = persistReducer(persistConfig, productsReducer);
 const persistedUsers = persistReducer(persistConfig, userSlice);
 
 export const store = configureStore({
   reducer: {
-    slider: persistedSlider,
     favorite: persistedFavorite,
-    products: persistedProducts,
     basket: persistedBasket,
     filtered: filteredReducer,
     users: persistedUsers,
