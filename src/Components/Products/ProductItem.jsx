@@ -1,4 +1,4 @@
-import React, { lazy } from 'react';
+import React from 'react';
 import styles from './ProductItem.module.css';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import { useDispatch, useSelector } from 'react-redux';

@@ -35,7 +35,7 @@ function ItemImgs({
   return (
     <div className={styles.product_item}>
       <ul style={{ cursor: 'pointer' }}>
-        {productImages.map((img, i) => {
+        {productImages?.map((img, i) => {
           return (
             <li
               key={i}
@@ -62,7 +62,7 @@ function ItemImgs({
 
       <section>
         <img
-          src={productImages[indexOfImg]}
+          src={productImages?.[indexOfImg]}
           style={{
             width: '400px',
             height: '600px',

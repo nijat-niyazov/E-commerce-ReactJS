@@ -15,6 +15,7 @@ function BasketItem(props) {
   const [basketQuan, setBasketQuan] = useState(quantity);
   const dispatch = useDispatch();
 
+
   const deleteHandle = id => {
     dispatch(deleteProduct(id));
     toast.error(
@@ -34,7 +35,7 @@ function BasketItem(props) {
   };
 
   return (
-    <div className={styles.basket}>
+    <div className={styles.basket} >
       <article className={styles.item}>
         <section className={styles.left}>
           <Link to={`/item/${id}`}>

@@ -38,7 +38,7 @@ function ItemInfo({ colors, description, id, mainImg, price, sizes, stock }) {
       <h4>fetaures</h4>
       <section className={styles.colors}>
         <p style={{ marginRight: '12px' }}>Colors:</p>
-        {colors.map((oneColor, i) => {
+        {colors?.map((oneColor, i) => {
           return (
             <button
               key={i}
@@ -54,7 +54,7 @@ function ItemInfo({ colors, description, id, mainImg, price, sizes, stock }) {
       </section>
       <section className={styles.sizes}>
         <p style={{ marginRight: '12px' }}>Sizes:</p>
-        {sizes.map((oneSize, i) => {
+        {sizes?.map((oneSize, i) => {
           return (
             <button
               key={i}
