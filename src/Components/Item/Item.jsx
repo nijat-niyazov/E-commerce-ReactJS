@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import useFetch from '../../utils/useFetch';
 import ItemImgs from './ItemImgs';

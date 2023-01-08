@@ -1,5 +1,5 @@
-import React, { lazy } from 'react';
-import { About } from '../Components/Footer/FootPages/About';
+import { lazy } from 'react';
+// import { About } from '../Components/Footer/FootPages/About';
 
 ///// it used for if you don't have used default for exported function ⤵
 const lazyLoad = (path, component) =>

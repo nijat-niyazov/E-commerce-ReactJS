@@ -1,5 +1,4 @@
 import React from 'react';
-import { Button, Typography } from '@mui/material';
 import GoogleIcon from '@mui/icons-material/Google';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import styles from './Login.module.css';
