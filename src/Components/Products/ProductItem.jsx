@@ -6,7 +6,7 @@ import { openModaL } from '../../redux/slices/basketSlice';
 import { setFavorites } from '../../redux/slices/favoriteSlice';
 import { Link } from 'react-router-dom';
 import OrderDetails from '../OrderDetailsForm/OrderDetails';
-import HoverImage from 'react-hover-image';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 // import { nanoid } from '@reduxjs/toolkit';
 // const OrderDetails = lazy(() => import('../OrderDetailsForm/OrderDetails'));
@@ -42,15 +42,15 @@ function ProductItem({
   return (
     <div className={styles.productItem}>
       <Link to={`item/${id}`}>
-        <HoverImage
+        <LazyLoadImage
+          effect="blur"
+          src={mainImg}
           style={{
             maxWidth: '100%',
             maxHeight: '100%',
             objectFit: 'cover',
             borderRadius: '10px',
           }}
-          src={mainImg}
-          hoverSrc={hoverImg}
         />
       </Link>
       <div className={styles.productItemNav}>
