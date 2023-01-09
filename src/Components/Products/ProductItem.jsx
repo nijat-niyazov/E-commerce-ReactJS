@@ -78,7 +78,7 @@ function ProductItem({
         </button>
       </div>
       <div className={styles.product_info}>
-        <p className={styles.productTitle}>{description}</p>
+        <h2 className={styles.productTitle}>{description}</h2>
         <p className={styles.productPrice}>{price}</p>
       </div>
     </div>
