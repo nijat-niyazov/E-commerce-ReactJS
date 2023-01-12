@@ -8,6 +8,8 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import LoadingSpinner from './Components/ZedComps/Loader';
 import lazyLoad from './utils/lazyLoad';
+import MyModal from './Components/ZedComps/Trying';
+import { useSelector } from 'react-redux';
 
 ///////// DEFAULT LAZY COMPONENTS  ⤵
 const Contact = lazy(() => import('./Components/Footer/FootPages/Contact'));
@@ -46,11 +48,19 @@ const About = lazyLoad('../Components/Footer/FootPages/About', 'About');
 // const About = lazyLoad2('./Components/Footer/FootPages/About', 'About');
 
 function App() {
+  const { ordered } = useSelector(state => state.basket);
+
+  console.log(ordered);
+
   return (
-    <div className="App">
+    <div
+      className="App"
+      style={ordered ? { overflow: 'hidden' } : { overflow: 'scroll' }}
+    >
       {/* <LoadingSpinner /> */}
       <MainNav />
       <SecondNav />
+      {/* <MyModal /> */}
       <Suspense fallback={<LoadingSpinner />}>
         <Routes>
           <Route element={<Home />} path="/" />

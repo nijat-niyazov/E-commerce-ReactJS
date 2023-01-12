@@ -12,7 +12,7 @@ code {
     monospace;
 }
 
-.App-over {
+.App {
   overflow: hidden;
   position: relative;
   height: 100vh;

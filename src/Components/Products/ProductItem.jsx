@@ -61,7 +61,7 @@ function ProductItem({
           Add to Cart
         </button>
         {ordered && (
-          <div>
+          <div style={{ overflowY: 'hidden' }}>
             <OrderDetails
               colors={colors}
               price={price}

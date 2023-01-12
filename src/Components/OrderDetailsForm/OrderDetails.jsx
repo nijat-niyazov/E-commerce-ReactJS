@@ -73,7 +73,7 @@ function OrderDetails({ colors, price, sizes, stock, description, img, id }) {
           <h5 className={styles.option_name}>Size</h5>
           {sizes.map((sizze, i) => {
             return (
-              <div key={i}>
+              <label key={i} className={styles.option}>
                 <input
                   className={styles.option_button}
                   type="radio"
@@ -81,8 +81,8 @@ function OrderDetails({ colors, price, sizes, stock, description, img, id }) {
                   value={sizze}
                   onChange={e => setSizeOpt(e.target.value)}
                 />
-                <label className={styles.option}>{sizze}</label>
-              </div>
+                <span>{sizze}</span>
+              </label>
             );
           })}
         </div>
@@ -91,7 +91,7 @@ function OrderDetails({ colors, price, sizes, stock, description, img, id }) {
           <h5 className={styles.option_name}>Color</h5>
           {colors.map((col, i) => {
             return (
-              <div key={i}>
+              <label key={i} className={styles.option}>
                 <input
                   className={styles.option_button}
                   type="radio"
@@ -99,10 +99,8 @@ function OrderDetails({ colors, price, sizes, stock, description, img, id }) {
                   value={col}
                   onChange={e => setColoritta(e.target.value)}
                 />
-                <label className={styles.option} htmlFor="">
-                  {col}
-                </label>
-              </div>
+                <span>{col}</span>
+              </label>
             );
           })}
         </div>
