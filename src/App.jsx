@@ -8,7 +8,6 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import LoadingSpinner from './Components/ZedComps/Loader';
 import lazyLoad from './utils/lazyLoad';
-import MyModal from './Components/ZedComps/Trying';
 import { useSelector } from 'react-redux';
 
 ///////// DEFAULT LAZY COMPONENTS  ⤵
@@ -55,7 +54,7 @@ function App() {
   return (
     <div
       className="App"
-      style={ordered ? { overflow: 'hidden' } : { overflow: 'scroll' }}
+      style={ordered ? { overflowY: 'hidden' } : { overflowY: 'scroll' }}
     >
       {/* <LoadingSpinner /> */}
       <MainNav />

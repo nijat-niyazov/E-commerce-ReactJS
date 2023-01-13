@@ -28,6 +28,7 @@ function MainNav() {
 
   /////////////////////////////////////////////
   const [anchorEl, setAnchorEl] = useState(null);
+
   const handleClose = () => {
     setAnchorEl(null);
   };
@@ -36,6 +37,7 @@ function MainNav() {
   const openMenu = e => {
     setAnchorEl(e.currentTarget);
   };
+  console.log(anchorEl);
 
   return (
     <nav className={styles.main_nav}>
@@ -73,6 +75,7 @@ function MainNav() {
                 horizontal: -150,
               }}
             >
+              <button onClick={handleClose}>x</button>
               <Typography sx={{ p: 2 }}>The content of the Popover.</Typography>
             </Popover>
           </li>
