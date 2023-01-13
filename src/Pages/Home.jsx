@@ -4,7 +4,6 @@ import DividerText from '../Components/ZedComps/Divider';
 import Products from '../Components/Products/Products';
 import Slider from '../Components/Slider/Slider';
 import Info from '../Components/ZedComps/Typography';
-import MyModal from '../Components/ZedComps/Trying';
 
 function Home() {
   const { query, filtered } = useSelector(state => state.filtered);
