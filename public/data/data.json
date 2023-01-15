@@ -31,10 +31,10 @@
         "https://meshque.com/cdn/storage/product_images/HeeE6vC9TpcueYh84/fullHD/HeeE6vC9TpcueYh84.jpeg"
       ],
       "hoverImg": "https://pyxis.nymag.com/v1/imgs/11a/79a/cb41b9f38bbf3914b5923b123fe9a61b8f.2x.rsquare.w600.jpg",
-      "description": "sweater",
+      "description": "Sweater",
       "price": "63",
       "id": 1,
-      "colors": ["Green", "White", "Grey", "Yellow", "Orange", "Blue"],
+      "colors": ["Green", "White", "Grey", "Yellow", "Orange", "Deepskyblue"],
       "sizes": ["XS", "S", "M", "L", "XL"],
       "stock": 4
     },
@@ -51,10 +51,10 @@
         "https://meshque.com/cdn/storage/product_images/HeeE6vC9TpcueYh84/fullHD/HeeE6vC9TpcueYh84.jpeg"
       ],
       "hoverImg": "https://cdn.shopify.com/s/files/1/0033/7854/4729/products/Sweaterno18full_7a1246c6-86fd-4856-954c-b51827a5a167_720x@2x.jpg?v=1638740635",
-      "description": "jacket",
+      "description": "Glasses",
       "price": "105",
       "id": 2,
-      "colors": ["Green", "White", "Grey", "Yellow", "Orange", "Blue"],
+      "colors": ["Green", "White", "Grey", "Yellow", "Orange", "Deepskyblue"],
       "sizes": ["XS", "S", "M", "L", "XL"],
       "stock": 4
     },
@@ -72,10 +72,10 @@
         "https://meshque.com/cdn/storage/product_images/HeeE6vC9TpcueYh84/fullHD/HeeE6vC9TpcueYh84.jpeg"
       ],
       "hoverImg": "https://cdn11.bigcommerce.com/s-scgdirr/images/stencil/480x633/products/26213/111984/R836_-_Oatmeal_1__70189.1661787364.jpg?c=2",
-      "description": "hat",
+      "description": "Bots",
       "price": "63",
-      "id": 4,
-      "colors": ["Green", "White", "Grey", "Yellow", "Orange", "Blue"],
+      "id": 3,
+      "colors": ["Green", "White", "Grey", "Yellow", "Orange", "Deepskyblue"],
       "sizes": ["XS", "S", "M", "L", "XL"],
       "stock": 4
     },
@@ -92,10 +92,10 @@
         "https://meshque.com/cdn/storage/product_images/HeeE6vC9TpcueYh84/fullHD/HeeE6vC9TpcueYh84.jpeg"
       ],
       "hoverImg": "https://meshque.com/cdn/storage/product_images/3RzwdkFctei5wnpCx/fullHD/3RzwdkFctei5wnpCx.jpeg",
-      "description": "shooes",
+      "description": "Hoodie",
       "price": "105",
       "id": 4,
-      "colors": ["Green", "White", "Grey", "Yellow", "Orange", "Blue"],
+      "colors": ["Green", "White", "Grey", "Yellow", "Orange", "Deepskyblue"],
       "sizes": ["XS", "S", "M", "L", "XL"],
       "stock": 4
     },
@@ -112,10 +112,10 @@
         "https://meshque.com/cdn/storage/product_images/HeeE6vC9TpcueYh84/fullHD/HeeE6vC9TpcueYh84.jpeg"
       ],
       "hoverImg": "https://meshque.com/cdn/storage/product_images/yYwpAk2bL95WmCgcL/fullHD/yYwpAk2bL95WmCgcL.jpeg",
-      "description": "scarf",
+      "description": "Jacket",
       "price": "63",
       "id": 5,
-      "colors": ["Green", "White", "Grey", "Yellow", "Orange", "Blue"],
+      "colors": ["Green", "White", "Grey", "Yellow", "Orange", "Deepskyblue"],
       "sizes": ["XS", "S", "M", "L", "XL"],
       "stock": 4
     },
@@ -132,10 +132,10 @@
         "https://meshque.com/cdn/storage/product_images/HeeE6vC9TpcueYh84/fullHD/HeeE6vC9TpcueYh84.jpeg"
       ],
       "hoverImg": "https://meshque.com/cdn/storage/product_images/3RzwdkFctei5wnpCx/fullHD/3RzwdkFctei5wnpCx.jpeg",
-      "description": "shirt",
+      "description": "Pyjamas",
       "price": "105",
       "id": 6,
-      "colors": ["Green", "White", "Grey", "Yellow", "Orange", "Blue"],
+      "colors": ["Green", "White", "Grey", "Yellow", "Orange", "Deepskyblue"],
       "sizes": ["XS", "S", "M", "L", "XL"],
       "stock": 4
     },
@@ -152,10 +152,10 @@
         "https://meshque.com/cdn/storage/product_images/HeeE6vC9TpcueYh84/fullHD/HeeE6vC9TpcueYh84.jpeg"
       ],
       "hoverImg": "https://meshque.com/cdn/storage/product_images/yYwpAk2bL95WmCgcL/fullHD/yYwpAk2bL95WmCgcL.jpeg",
-      "description": "jeans",
+      "description": "Warm Set",
       "price": "63",
       "id": 7,
-      "colors": ["Green", "White", "Grey", "Yellow", "Orange", "Blue"],
+      "colors": ["Green", "White", "Grey", "Yellow", "Orange", "Deepskyblue"],
       "sizes": ["XS", "S", "M", "L", "XL"],
       "stock": 4
     },
@@ -172,10 +172,10 @@
         "https://meshque.com/cdn/storage/product_images/HeeE6vC9TpcueYh84/fullHD/HeeE6vC9TpcueYh84.jpeg"
       ],
       "hoverImg": "https://meshque.com/cdn/storage/product_images/3RzwdkFctei5wnpCx/fullHD/3RzwdkFctei5wnpCx.jpeg",
-      "description": "trousers",
+      "description": "Trousers",
       "price": "105",
       "id": 8,
-      "colors": ["Green", "White", "Grey", "Yellow", "Orange", "Blue"],
+      "colors": ["Green", "White", "Grey", "Yellow", "Orange", "Deepskyblue"],
       "sizes": ["XS", "S", "M", "L", "XL"],
       "stock": 4
     }

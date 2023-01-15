@@ -71,10 +71,13 @@ ul {
   padding-right: 10px;
   cursor: pointer;
 }
+
 .categories_item:hover {
+  transform: translateY(-3px);
   color: rgb(201, 38, 133);
-  transition: all 0.2s;
+  transition: all 0.5s;
 }
+
 .categories {
   display: flex;
   margin: 13px 0;

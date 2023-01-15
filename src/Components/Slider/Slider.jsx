@@ -34,7 +34,7 @@ function Slider() {
           textAlign: 'center', // 4
           position: 'absolute',
           bottom: '10px',
-          zIndex: '5',
+          zIndex: '2',
         },
       }}
     >

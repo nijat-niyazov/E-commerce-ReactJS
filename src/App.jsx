@@ -49,12 +49,10 @@ const About = lazyLoad('../Components/Footer/FootPages/About', 'About');
 function App() {
   const { ordered } = useSelector(state => state.basket);
 
-  console.log(ordered);
-
   return (
     <div
       className="App"
-      style={ordered ? { overflowY: 'hidden' } : { overflowY: 'scroll' }}
+      // style={ordered ? { overflowY: 'hidden' } : { overflowY: 'scroll' }}
     >
       {/* <LoadingSpinner /> */}
       <MainNav />

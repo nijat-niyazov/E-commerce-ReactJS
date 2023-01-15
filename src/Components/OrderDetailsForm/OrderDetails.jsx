@@ -45,16 +45,6 @@ function OrderDetails({ colors, price, sizes, stock, description, img, id }) {
     );
   };
 
-  // const changeQuantity = e => {
-  //   e.target.value === '+'
-  //     ? quantity === stock
-  //       ? toast.info('You reached stock')
-  //       : dispatch(increaseQuantity())
-  //     : quantity < 2
-  //     ? toast.info('At least one item')
-  //     : dispatch(decreaseQuantity());
-  // };
-
   return (
     <div className={styles.modal}>
       <div className={styles.modal_inner}>
@@ -71,35 +61,43 @@ function OrderDetails({ colors, price, sizes, stock, description, img, id }) {
 
         <div className={styles.sizes}>
           <h5 className={styles.option_name}>Size</h5>
-          {sizes.map((sizze, i) => {
-            return (
-              <label key={i} className={styles.option}>
-                <input
-                  className={styles.option_button}
-                  type="radio"
-                  name="size"
-                  value={sizze}
-                  onChange={e => setSizeOpt(e.target.value)}
-                />
-                <span>{sizze}</span>
-              </label>
-            );
-          })}
+          <div className={styles.option_div}>
+            {sizes.map((sizze, i) => {
+              return (
+                <label key={i} className={styles.option}>
+                  <input
+                    className={`${styles.option_button} ${styles.size_button}`}
+                    type="radio"
+                    name="size"
+                    value={sizze}
+                    onChange={e => setSizeOpt(e.target.value)}
+                  />
+                  <span>{sizze}</span>
+                </label>
+              );
+            })}
+          </div>
         </div>
 
-        <div className={styles.colors}>
+        <div className={styles.sizes}>
           <h5 className={styles.option_name}>Color</h5>
           {colors.map((col, i) => {
             return (
               <label key={i} className={styles.option}>
                 <input
-                  className={styles.option_button}
+                  className={`${styles.option_button} ${styles.color_button} `}
                   type="radio"
                   name="product_color"
                   value={col}
                   onChange={e => setColoritta(e.target.value)}
                 />
-                <span>{col}</span>
+                <span
+                  style={{
+                    '--background': col,
+                  }}
+                >
+                  {col}
+                </span>
               </label>
             );
           })}
