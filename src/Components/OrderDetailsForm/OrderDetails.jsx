@@ -55,7 +55,9 @@ function OrderDetails({ colors, price, sizes, stock, description, img, id }) {
             style={{ textAlign: 'center' }}
           >
             <h3>Features</h3>
-            <HighlightOffIcon />
+            <HighlightOffIcon
+              style={{ cursor: 'pointer', height: '35px', width: '35px' }}
+            />
           </span>
         </div>
 

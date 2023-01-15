@@ -1,20 +1,27 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import HighlightOffIcon from '@mui/icons-material/HighlightOff';
-import { useDispatch } from 'react-redux';
-import { deleteProduct, editQuantity } from '../../redux/slices/basketSlice';
-import { toast } from 'react-toastify';
 import styles from './Basket.module.css';
-import Stack from '@mui/material/Stack';
+import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { deleteProduct } from '../../redux/slices/basketSlice';
+import HighlightOffIcon from '@mui/icons-material/HighlightOff';
+import { toast } from 'react-toastify';
+import ChangeQuantity from './AmountModal';
+import Modal from '@mui/material/Modal';
 import Button from '@mui/material/Button';
-import AddIcon from '@mui/icons-material/Add';
-import RemoveIcon from '@mui/icons-material/Remove';
 
 function BasketItem(props) {
   const { color, image, name, price, quantity, size, id, stock } = props;
-  const [basketQuan, setBasketQuan] = useState(quantity);
   const dispatch = useDispatch();
+  const [open, setOpen] = useState(false);
 
+  const handleOpen = () => {
+    setOpen(true);
+  };
+  const handleClose = () => {
+    setOpen(false);
+  };
+
+  console.log(open);
 
   const deleteHandle = id => {
     dispatch(deleteProduct(id));
@@ -23,19 +30,8 @@ function BasketItem(props) {
     );
   };
 
-  const submitHandle = (e, id) => {
-    e.preventDefault();
-
-    dispatch(
-      editQuantity({
-        id: id,
-        quantity: basketQuan,
-      })
-    );
-  };
-
   return (
-    <div className={styles.basket} >
+    <div className={styles.basket}>
       <article className={styles.item}>
         <section className={styles.left}>
           <Link to={`/item/${id}`}>
@@ -49,41 +45,36 @@ function BasketItem(props) {
           </div>
         </section>
 
-        <form onSubmit={e => submitHandle(e, id)}>
-          <Stack
-            spacing={2}
-            direction="row"
-            style={{
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'space-between',
-              marginTop: '30px',
+        <section>
+          <Button
+            onClick={handleOpen}
+            sx={{
+              mt: 1,
+              fontSize: 16,
+              textAlign: 'center',
+              outlineColor: 'd8127d',
+              color: '#red',
             }}
+            size="small"
+            color="error"
+            variant="outlined"
           >
-            <Button
-              size="small"
-              color="error"
-              variant="contained"
-              value="remove"
-              onClick={() => setBasketQuan(b => b - 1)}
-              disabled={basketQuan === 1}
-            >
-              <RemoveIcon />
-            </Button>
-            <span>{basketQuan}</span>
-            <Button
-              size="small"
-              color="success"
-              variant="contained"
-              value="add"
-              onClick={() => setBasketQuan(b => b + 1)}
-              disabled={basketQuan === stock}
-            >
-              <AddIcon />
-            </Button>
-            <button> okay</button>
-          </Stack>
-        </form>
+            Change Amount
+          </Button>
+          <Modal
+            open={open}
+            onClose={handleClose}
+            aria-labelledby="modal-modal-title"
+            aria-describedby="modal-modal-description"
+          >
+            <ChangeQuantity
+              props={props}
+              setOpen={setOpen}
+              open={open}
+              handleClose={handleClose}
+            />
+          </Modal>
+        </section>
 
         <section className={styles.right}>
           <button

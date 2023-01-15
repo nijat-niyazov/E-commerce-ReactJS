@@ -37,7 +37,7 @@ function MainNav() {
   const openMenu = e => {
     setAnchorEl(e.currentTarget);
   };
-  console.log(anchorEl);
+  // console.log(anchorEl);
 
   return (
     <nav className={styles.main_nav}>
@@ -63,7 +63,10 @@ function MainNav() {
         <ul className={styles.right_elements}>
           <li className={styles.right_element}>az</li>
           <li className={styles.right_element}>ru</li>
-          <li className={styles.right_element} onClick={openMenu}>
+          <li
+            className={styles.right_element}
+            // onClick={openMenu}
+          >
             <SettingsIcon />
             <Popover
               onClose={handleClose}

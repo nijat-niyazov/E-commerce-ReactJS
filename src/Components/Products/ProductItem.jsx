@@ -2,13 +2,28 @@ import React, { useState } from 'react';
 import styles from './ProductItem.module.css';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import { useDispatch, useSelector } from 'react-redux';
-import { openModaL } from '../../redux/slices/basketSlice';
+import { closeModal, openModaL } from '../../redux/slices/basketSlice';
 import { setFavorites } from '../../redux/slices/favoriteSlice';
 import { Link } from 'react-router-dom';
 import OrderDetails from '../OrderDetailsForm/OrderDetails';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import { toast } from 'react-toastify';
 // import { nanoid } from '@reduxjs/toolkit';
+import Box from '@mui/material/Box';
+import Button from '@mui/material/Button';
+import Modal from '@mui/material/Modal';
+
+const style = {
+  position: 'absolute',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
+  // width: 400,
+  bgcolor: 'background.paper',
+  border: '2px solid #000',
+  boxShadow: 24,
+  p: 4,
+};
 
 function ProductItem({
   description,
@@ -28,9 +43,21 @@ function ProductItem({
     console.log(el);
   };
 
+  const [open, setOpen] = useState(false);
+
+  const handleOpen = () => {
+    setOpen(true);
+    dispatch(openModaL());
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+    dispatch(closeModal());
+  };
+
   const { ordered } = useSelector(state => state.basket);
   const dispatch = useDispatch();
-  const [favEl, setFavEl] = useState('');
+  // const [favEl, setFavEl] = useState('');
   const [isClicked, setIsClicked] = useState(false);
 
   const addToWishList = e => {
@@ -61,14 +88,16 @@ function ProductItem({
         />
       </Link>
       <div className={styles.productItemNav}>
-        <button
-          className={styles.addToCartBtn}
-          onClick={() => dispatch(openModaL())}
-        >
+        <button className={styles.addToCartBtn} onClick={handleOpen}>
           Add to Cart
         </button>
         {ordered && (
-          <div>
+          <Modal
+            open={open}
+            onClose={handleClose}
+            aria-labelledby="modal-modal-title"
+            aria-describedby="modal-modal-description"
+          >
             <OrderDetails
               colors={colors}
               price={price}
@@ -78,7 +107,7 @@ function ProductItem({
               img={mainImg}
               id={id}
             />
-          </div>
+          </Modal>
         )}
         <button
           onClick={addToWishList}

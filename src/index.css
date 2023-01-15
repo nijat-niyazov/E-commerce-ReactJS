@@ -42,3 +42,21 @@ code {
   border-radius: 50%;
   animation: spinner 1.5s linear infinite;
 }
+
+.tester {
+  width: 200px;
+  height: 200px;
+  animation: fadeInOut 1s ease-in-out;
+}
+
+@keyframes fadeInOut {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}

@@ -47,17 +47,10 @@ const About = lazyLoad('../Components/Footer/FootPages/About', 'About');
 // const About = lazyLoad2('./Components/Footer/FootPages/About', 'About');
 
 function App() {
-  const { ordered } = useSelector(state => state.basket);
-
   return (
-    <div
-      className="App"
-      // style={ordered ? { overflowY: 'hidden' } : { overflowY: 'scroll' }}
-    >
-      {/* <LoadingSpinner /> */}
+    <div className="App">
       <MainNav />
       <SecondNav />
-      {/* <MyModal /> */}
       <Suspense fallback={<LoadingSpinner />}>
         <Routes>
           <Route element={<Home />} path="/" />

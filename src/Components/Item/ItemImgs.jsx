@@ -1,4 +1,6 @@
+import { Button } from '@mui/material';
 import React, { useState } from 'react';
+import { useEffect } from 'react';
 import styles from './Item.module.css';
 import ItemInfo from './ItemInfo';
 
@@ -23,19 +25,24 @@ function ItemImgs({
   };
 
   const [indexOfImg, setIndexOfImg] = useState(0);
+  const [activeImg, setActiveimg] = useState(indexOfImg);
 
-  const getID = e => {
-    console.log(e.target);
-    console.log(e.target.id);
+  const handleClick = page => {
+    setActiveimg(page);
+    console.log(activeImg == indexOfImg);
+  };
+
+  const getID = (e, p) => {
     setIndexOfImg(e.target.id);
 
-    // e.target.classList.add('mystyle');
+    e.target.id == p && handleClick(p);
   };
 
   return (
     <div className={styles.product_item}>
-      <ul style={{ cursor: 'pointer' }}>
+      <ul style={{ cursor: 'pointer', marginLeft: '10px' }}>
         {productImages?.map((img, i) => {
+          console.log(i);
           return (
             <li
               key={i}
@@ -48,12 +55,18 @@ function ItemImgs({
                 style={{
                   height: '58px',
                   border: '1px solid black',
+                  borderRadius: '2px',
+                  // padding: i == activeImg ? '0 20px' : '0 40px',
                   padding: '0 40px',
-                  opacity: '0.5',
+                  opacity: i == activeImg ? '1' : '0.5',
+                  transform: i == activeImg ? 'scale(1.5)' : '',
+                  transition: 'opacity, transform 0.5s',
                 }}
                 src={img}
                 alt={img}
-                onClick={getID}
+                onClick={e => {
+                  getID(e, i);
+                }}
               />
             </li>
           );
@@ -67,6 +80,8 @@ function ItemImgs({
             width: '400px',
             height: '600px',
             margin: '0 50px',
+            borderRadius: '5px',
+            transition: 'all 3s ease-in-out 3s',
           }}
           alt="product_img"
         />
