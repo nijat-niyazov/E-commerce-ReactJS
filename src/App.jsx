@@ -1,6 +1,6 @@
 import React, { lazy, Suspense } from 'react';
 import { Routes, Route } from 'react-router-dom';
-import Home from './Pages/Home';
+import Home from './Home';
 import Footer from './Components/Footer/Footer';
 import MainNav from './Components/NavBar/MainNav';
 import SecondNav from './Components/NavBar/SecondNav';
