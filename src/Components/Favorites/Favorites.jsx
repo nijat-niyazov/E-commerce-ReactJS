@@ -3,18 +3,19 @@ import { useSelector } from 'react-redux';
 import FavItem from './FavItem';
 import styles from '../Products/Products.module.css';
 import Info from '../ZedComps/Typography';
+import DividerText from '../ZedComps/Divider';
 
 function Favorites() {
   const { favorites } = useSelector(state => state.favorite);
   const { query, filtered } = useSelector(state => state.filtered);
 
   useEffect(() => {
-    window.scrollTo({ top: 128, left: 0, behavior: 'smooth' });
+    window.scrollTo({ top: 198, left: 0, behavior: 'smooth' });
   }, []);
 
   return (
     <div>
-      <h1 style={{ textAlign: 'center', margin: '25px' }}>Favorites</h1>
+      <DividerText content={'Favorites'} />
       {favorites.length < 1 && (
         <Info content={'You have no any product as favorite'} />
       )}

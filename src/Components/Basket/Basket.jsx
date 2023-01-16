@@ -5,6 +5,7 @@ import BasketInfo from './BasketInfo';
 import { useSelector } from 'react-redux';
 import Info from '../ZedComps/Typography';
 import { useAutoAnimate } from '@formkit/auto-animate/react';
+import DividerText from '../ZedComps/Divider';
 
 function Basket() {
   const { basket } = useSelector(state => state.basket);
@@ -12,7 +13,7 @@ function Basket() {
 
   return (
     <div className={styles.basket_page}>
-      <h1>Cart</h1>
+      <DividerText content={'Basket'} />
       {basket.length < 1 ? (
         <Info content={'You have no any product in basket'} />
       ) : (

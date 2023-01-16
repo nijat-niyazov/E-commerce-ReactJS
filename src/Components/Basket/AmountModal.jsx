@@ -23,11 +23,10 @@ const style = {
   p: 4,
 };
 
-export default function ChangeQuantity({ props, handleClose, open }) {
+export default function ChangeQuantity({ props, handleClose }) {
   const { quantity, id, stock } = props;
   const dispatch = useDispatch();
   const [basketQuan, setBasketQuan] = useState(quantity);
-  const [btnIcon, setBtnIcon] = useState('OKAY');
   const [clicked, setClicked] = useState(false);
 
   const loader = () => {
@@ -134,7 +133,7 @@ export default function ChangeQuantity({ props, handleClose, open }) {
                 </LoadingButton>
               ) : (
                 <Button size="small" variant="contained" type="submit">
-                  {btnIcon}
+                  OKAY
                 </Button>
               )}
             </span>
