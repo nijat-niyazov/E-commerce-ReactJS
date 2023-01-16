@@ -7,7 +7,6 @@ import { useDispatch } from 'react-redux';
 import { editQuantity } from '../../redux/slices/basketSlice';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
-import { useEffect } from 'react';
 import LoadingButton from '@mui/lab/LoadingButton';
 import { toast } from 'react-toastify';
 
