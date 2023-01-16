@@ -8,22 +8,8 @@ import { Link } from 'react-router-dom';
 import OrderDetails from '../OrderDetailsForm/OrderDetails';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import { toast } from 'react-toastify';
-// import { nanoid } from '@reduxjs/toolkit';
-import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
 import Modal from '@mui/material/Modal';
-
-const style = {
-  position: 'absolute',
-  top: '50%',
-  left: '50%',
-  transform: 'translate(-50%, -50%)',
-  // width: 400,
-  bgcolor: 'background.paper',
-  border: '2px solid #000',
-  boxShadow: 24,
-  p: 4,
-};
+// import { nanoid } from '@reduxjs/toolkit';
 
 function ProductItem({
   description,
@@ -34,14 +20,8 @@ function ProductItem({
   stock,
   id,
   hoverImg,
-  index,
 }) {
   // const id = nanoid();
-
-  const i = e => {
-    const el = e.target.parentNode.parentNode.parentNode.parentNode.parentNode;
-    console.log(el);
-  };
 
   const [open, setOpen] = useState(false);
 
@@ -57,7 +37,6 @@ function ProductItem({
 
   const { ordered } = useSelector(state => state.basket);
   const dispatch = useDispatch();
-  // const [favEl, setFavEl] = useState('');
   const [isClicked, setIsClicked] = useState(false);
 
   const addToWishList = e => {
@@ -75,7 +54,6 @@ function ProductItem({
     );
     toast.success('You added one item to favorites');
     setIsClicked(fav => !fav);
-    // i(e);
   };
 
   return (

@@ -5,14 +5,11 @@ import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
 import { useDispatch } from 'react-redux';
 import { editQuantity } from '../../redux/slices/basketSlice';
-
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import { useEffect } from 'react';
 import LoadingButton from '@mui/lab/LoadingButton';
 import { toast } from 'react-toastify';
-// import FormControlLabel from '@mui/material/FormControlLabel';
-// import Switch from '@mui/material/Switch';
 
 const style = {
   position: 'absolute',

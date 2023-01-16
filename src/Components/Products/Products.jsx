@@ -1,9 +1,8 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import ProductItem from './ProductItem';
 import styles from './Products.module.css';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import useFetch from '../../utils/useFetch';
-import { setProducts } from '../../redux/slices/productsSlice';
 
 function Products() {
   const { data } = useFetch('../data/data.json');

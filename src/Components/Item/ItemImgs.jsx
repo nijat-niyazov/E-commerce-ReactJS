@@ -1,6 +1,5 @@
-import { Button } from '@mui/material';
 import React, { useState } from 'react';
-import { useEffect } from 'react';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 import styles from './Item.module.css';
 import ItemInfo from './ItemInfo';
 
@@ -50,7 +49,8 @@ function ItemImgs({
                 marginBottom: '20px',
               }}
             >
-              <img
+              <LazyLoadImage
+                effect="blur"
                 id={i}
                 style={{
                   height: '58px',
@@ -74,7 +74,8 @@ function ItemImgs({
       </ul>
 
       <section>
-        <img
+        <LazyLoadImage
+          effect="blur"
           src={productImages?.[indexOfImg]}
           style={{
             width: '400px',
