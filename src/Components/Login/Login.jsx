@@ -58,6 +58,10 @@ export default function LoginForm() {
           })
         );
         toast.success('You succesfully signed up');
+        setMail('');
+        setPas('');
+        setActive('in');
+        toast.info('Please log in');
       } else {
         toast.info('Something Went Wrong :(') && window.location.reload(true);
       }

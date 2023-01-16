@@ -28,7 +28,6 @@ function ItemImgs({
 
   const handleClick = page => {
     setActiveimg(page);
-    console.log(activeImg == indexOfImg);
   };
 
   const getID = (e, p) => {
@@ -41,8 +40,7 @@ function ItemImgs({
     <div className={styles.product_item}>
       <ul style={{ cursor: 'pointer', marginLeft: '10px' }}>
         {productImages?.map((img, i) => {
-          console.log(i);
-          return (
+           return (
             <li
               key={i}
               style={{
@@ -56,7 +54,6 @@ function ItemImgs({
                   height: '58px',
                   border: '1px solid black',
                   borderRadius: '2px',
-                  // padding: i == activeImg ? '0 20px' : '0 40px',
                   padding: '0 40px',
                   opacity: i == activeImg ? '1' : '0.5',
                   transform: i == activeImg ? 'scale(1.5)' : '',

@@ -48,7 +48,7 @@ function OrderDetails({ colors, price, sizes, stock, description, img, id }) {
   return (
     <div className={styles.modal}>
       <div className={styles.modal_inner}>
-        <div className={styles.header}>
+        <section className={styles.header}>
           <span
             className={styles.close_modal}
             onClick={() => dispatch(closeModal())}
@@ -59,9 +59,9 @@ function OrderDetails({ colors, price, sizes, stock, description, img, id }) {
               style={{ cursor: 'pointer', height: '35px', width: '35px' }}
             />
           </span>
-        </div>
+        </section>
 
-        <div className={styles.sizes}>
+        <section className={styles.sizes}>
           <h5 className={styles.option_name}>Size</h5>
           <div className={styles.option_div}>
             {sizes.map((sizze, i) => {
@@ -79,9 +79,9 @@ function OrderDetails({ colors, price, sizes, stock, description, img, id }) {
               );
             })}
           </div>
-        </div>
+        </section>
 
-        <div className={styles.sizes}>
+        <section className={styles.sizes}>
           <h5 className={styles.option_name}>Color</h5>
           {colors.map((col, i) => {
             return (
@@ -103,9 +103,9 @@ function OrderDetails({ colors, price, sizes, stock, description, img, id }) {
               </label>
             );
           })}
-        </div>
+        </section>
 
-        <div className={styles.quantity}>
+        <section className={styles.quantity}>
           <button
             className={styles.quantity_icon}
             value="-"
@@ -123,9 +123,9 @@ function OrderDetails({ colors, price, sizes, stock, description, img, id }) {
           >
             <AddIcon />
           </button>
-        </div>
+        </section>
 
-        <div className={styles.order_info}>
+        <section className={styles.order_info}>
           <h5 className="block-title">
             Total price: {price * quantity}
             <span>
@@ -136,9 +136,9 @@ function OrderDetails({ colors, price, sizes, stock, description, img, id }) {
               />
             </span>
           </h5>
-        </div>
+        </section>
 
-        <div className={styles.actions}>
+        <section className={styles.actions}>
           <button
             className={styles.action_btn}
             style={{ background: '#12d86d' }}
@@ -152,7 +152,7 @@ function OrderDetails({ colors, price, sizes, stock, description, img, id }) {
           >
             Add ✔
           </button>
-        </div>
+        </section>
       </div>
     </div>
   );

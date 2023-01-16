@@ -51,6 +51,7 @@
   padding: 1em 0;
   text-transform: uppercase;
   color: #d8127d;
+  transition: all 0.3s;
 }
 
 .addToCartBtn:hover {

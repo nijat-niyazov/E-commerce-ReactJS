@@ -13,6 +13,19 @@ function ItemInfo({ colors, description, id, mainImg, price, sizes, stock }) {
   const [coloritta, setColoritta] = useState(null);
   const [sizeOpt, setSizeOpt] = useState(null);
 
+  const [activeSize, setActiveSize] = useState(null);
+  const [activeColor, setActiveColor] = useState(null);
+
+  const colorDefiner = (e, i) => {
+    setColoritta(e.target.value);
+    setActiveColor(i);
+  };
+
+  const sizeDefiner = (e, i) => {
+    setSizeOpt(e.target.value);
+    setActiveSize(i);
+  };
+
   const addToBasket = () => {
     dispatch(
       addProduct({
@@ -29,78 +42,136 @@ function ItemInfo({ colors, description, id, mainImg, price, sizes, stock }) {
     setColoritta(null);
     setSizeOpt(null);
     setQuantity(1);
+    setActiveColor(null);
+    setActiveSize(null);
   };
 
   return (
     <div>
-      <h2>{description}</h2>
-      <p>{price}</p>
-      <h4>fetaures</h4>
+      <h2 className={styles.description}>{description}</h2>
+      <div
+        className={styles.price_cont}
+        style={{
+          marginBottom: '10px',
+        }}
+      >
+        <span className={styles.price}>Product price: {price}</span>
+        <img
+          src="https://www.meshque.com/img/aznPink.svg"
+          className={styles.logo}
+          alt="azn"
+        />
+      </div>
+      <h4
+        style={{
+          fontSize: '35px',
+          marginBottom: '20px',
+        }}
+      >
+        Features
+      </h4>
       <section className={styles.colors}>
-        <p style={{ marginRight: '12px' }}>Colors:</p>
+        <p className={styles.option_name}>Colors:</p>
         {colors?.map((oneColor, i) => {
           return (
             <button
               key={i}
               className={styles.color}
               style={{
-                backgroundColor: `${oneColor}`,
+                '--color': oneColor,
+                marginRight: activeColor === i ? '20px' : '',
+                marginLeft: activeColor === i ? '10px' : '',
+                transform: activeColor === i ? 'scale(1.5)' : '',
+                transition: 'all 0.2s',
               }}
               value={oneColor}
-              onClick={e => setColoritta(e.target.value)}
+              onClick={e => {
+                colorDefiner(e, i);
+              }}
             ></button>
           );
         })}
       </section>
       <section className={styles.sizes}>
-        <p style={{ marginRight: '12px' }}>Sizes:</p>
+        <p className={styles.option_name}>Sizes:</p>
         {sizes?.map((oneSize, i) => {
           return (
             <button
               key={i}
               className={styles.size}
               value={oneSize}
-              onClick={e => setSizeOpt(e.target.value)}
+              style={{
+                marginRight: activeSize === i ? '20px' : '',
+                marginLeft: activeSize === i ? '10px' : '',
+                transform: activeSize === i ? 'scale(1.3)' : '',
+                color: activeSize === i ? '#E0E0E0' : '',
+                backgroundColor: activeSize === i ? '#403F3F' : '',
+
+                transition: 'all 0.2s',
+              }}
+              onClick={e => {
+                sizeDefiner(e, i);
+              }}
             >
               {oneSize}
             </button>
           );
         })}
       </section>
-      <section className={styles.sizes}>
-        <p style={{ marginRight: '12px' }}>Quantity:</p>
-        <button
-          className={styles.quantity_icon}
-          onClick={() => {
-            if (quantity < 2) return;
-            else {
-              setQuantity(quantity => quantity - 1);
-            }
-          }}
-          disabled={!coloritta || !sizeOpt}
-        >
-          <RemoveIcon />
-        </button>
-        <span>{quantity}</span>
-        <button
-          className={styles.quantity_icon}
-          disabled={!coloritta || !sizeOpt}
-          onClick={() => {
-            if (quantity === stock) return;
-            else {
-              setQuantity(quantity => quantity + 1);
-            }
-          }}
-        >
-          <AddIcon />
-        </button>
+
+      <section className={styles.quantity}>
+        <p className={styles.option_name}>Quantity:</p>
+        <div className={styles.actions_cont}>
+          <button
+            className={styles.quantity_icon}
+            onClick={() => {
+              if (quantity < 2) return;
+              else {
+                setQuantity(quantity => quantity - 1);
+              }
+            }}
+            disabled={quantity < 2 || !coloritta || !sizeOpt}
+          >
+            <RemoveIcon />
+          </button>
+          <span
+            style={{
+              fontSize: '20px',
+            }}
+          >
+            {quantity}
+          </span>
+          <button
+            className={styles.quantity_icon}
+            disabled={quantity == stock || !coloritta || !sizeOpt}
+            onClick={() => {
+              if (quantity === stock) return;
+              else {
+                setQuantity(quantity => quantity + 1);
+              }
+            }}
+          >
+            <AddIcon />
+          </button>
+        </div>
+      </section>
+
+      <section className={styles.total_price}>
+        <p className={styles.option_name}>Total Price:</p>
+
+        <span className={styles.price}>
+          {quantity * price}
+          <img
+            src="https://www.meshque.com/img/aznPink.svg"
+            className={styles.logo}
+            alt="azn"
+          />
+        </span>
       </section>
       <section>
-        <p style={{ marginRight: '12px' }}>Total Price:</p>
-        <span>{quantity * price}</span>
-      </section>
-      <section>
-        <button onClick={addToBasket}>Add to Cart</button>
+        <button className={styles.action_btn} onClick={addToBasket}>
+          Add to Cart
+        </button>
       </section>
     </div>
   );
