@@ -64,7 +64,7 @@ function OrderDetails({ colors, price, sizes, stock, description, img, id }) {
         <section className={styles.sizes}>
           <h5 className={styles.option_name}>Size</h5>
           <div className={styles.option_div}>
-            {sizes.map((sizze, i) => {
+            {sizes?.map((sizze, i) => {
               return (
                 <label key={i} className={styles.option}>
                   <input
@@ -83,7 +83,7 @@ function OrderDetails({ colors, price, sizes, stock, description, img, id }) {
 
         <section className={styles.sizes}>
           <h5 className={styles.option_name}>Color</h5>
-          {colors.map((col, i) => {
+          {colors?.map((col, i) => {
             return (
               <label key={i} className={styles.option}>
                 <input

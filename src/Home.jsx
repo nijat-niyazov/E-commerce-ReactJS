@@ -16,7 +16,7 @@ function Home() {
       <div style={{ width: '1127px', margin: 'auto' }}>
         <DividerText content={'Bestsellers'} />
         {query && filtered.length < 1 ? (
-          <Info content={'nothing'} />
+          <Info content={'Nothing matches to your search query'} />
         ) : (
           <Products />
         )}

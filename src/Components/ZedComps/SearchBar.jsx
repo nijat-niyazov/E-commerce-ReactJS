@@ -17,10 +17,14 @@ const SearchBar = () => {
   const { query } = useSelector(state => state.filtered);
   const dispatch = useDispatch();
   const route = useLocation();
+  const { favorites } = useSelector(state => state.favorite);
 
   useEffect(() => {
     dispatch(clearQuery());
   }, [route.pathname]);
+
+  const favFilter = route.pathname.slice(1);
+  console.log(favFilter === 'favorites');
 
   const findProduct = searchedQuery => {
     if (!searchedQuery) {
@@ -28,7 +32,7 @@ const SearchBar = () => {
     } else {
       dispatch(
         setFiltered(
-          products?.filter(p =>
+          (favFilter === 'favorites' ? favorites : products)?.filter(p =>
             p.description.toLowerCase().includes(searchedQuery)
           )
         )

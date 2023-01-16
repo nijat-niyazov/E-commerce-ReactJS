@@ -42,12 +42,12 @@ function ProductItem({
   const addToWishList = e => {
     dispatch(
       setFavorites({
-        name: description,
+        description: description,
         size: sizes,
         color: colors,
         price: price,
         stock: stock,
-        image: mainImg,
+        mainImg: mainImg,
         id: id,
         fav: isClicked,
       })
