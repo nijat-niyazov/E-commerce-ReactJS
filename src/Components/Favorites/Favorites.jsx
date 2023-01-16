@@ -9,14 +9,8 @@ function Favorites() {
   const { query, filtered } = useSelector(state => state.filtered);
 
   useEffect(() => {
-    // 👇️ scroll to top on page load
     window.scrollTo({ top: 128, left: 0, behavior: 'smooth' });
   }, []);
-
-  useEffect(() => {
-    console.log(!(query || favorites.length > 1));
-    console.log(favorites);
-  });
 
   return (
     <div>
@@ -41,26 +35,3 @@ function Favorites() {
 }
 
 export default Favorites;
-
-// if (query && filtered.length < 1) {
-//   <Info content={'Nothing matches to your search query'} />;
-// } else {
-//   {
-//     (query || filtered.length > 1 ? filtered : favorites)?.map(
-//       (favoriteItem, i) => {
-//         console.log(favoriteItem);
-//         return <FavItem key={i} {...favoriteItem} />;
-//       }
-//     );
-//   }
-// }
-
-// {
-//   query && filtered.length < 1 ? (
-//     <Info content={'Nothing matches to your search query'} />
-//   ) : (
-//     (query || filtered.length > 1 ? filtered : favorites)?.map(
-//       (favoriteItem, i) => <FavItem key={i} {...favoriteItem} />
-//     )
-//   );
-// }

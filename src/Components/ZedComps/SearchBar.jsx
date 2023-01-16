@@ -7,6 +7,7 @@ import {
   setFiltered,
   searchQuery,
   clearQuery,
+  clearFiltered,
 } from '../../redux/slices/filteredSlice';
 import { useLocation } from 'react-router-dom';
 import useFetch from '../../utils/useFetch';
@@ -21,10 +22,10 @@ const SearchBar = () => {
 
   useEffect(() => {
     dispatch(clearQuery());
+    dispatch(clearFiltered());
   }, [route.pathname]);
 
   const favFilter = route.pathname.slice(1);
-  console.log(favFilter === 'favorites');
 
   const findProduct = searchedQuery => {
     if (!searchedQuery) {

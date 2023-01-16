@@ -11,25 +11,11 @@ import Modal from '@mui/material/Modal';
 import { Link } from 'react-router-dom';
 import { nanoid } from '@reduxjs/toolkit';
 
-function FavItem(
-    {
-    description,
-    mainImg,
-    price,
-    color,
-    size,
-    stock,
-    id,
-  }
-
-  // props
-) {
-  // console.log(props);
-
+function FavItem({ description, mainImg, price, color, size, stock, id }) {
   const { ordered } = useSelector(state => state.basket);
   const dispatch = useDispatch();
-  // const id = nanoid();
   const [open, setOpen] = useState(false);
+  // const id = nanoid();
 
   const handleOpen = () => {
     setOpen(true);
