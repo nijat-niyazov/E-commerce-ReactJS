@@ -24,6 +24,8 @@ function ProductItem({
   // const id = nanoid();
 
   const [open, setOpen] = useState(false);
+  const [hover, setHover] = useState(false);
+  const [imgSrc, setImgSrc] = useState(mainImg);
 
   const handleOpen = () => {
     setOpen(true);
@@ -61,8 +63,16 @@ function ProductItem({
       <Link to={`item/${id}`}>
         <LazyLoadImage
           effect="blur"
-          src={mainImg}
-          className={styles.product_img}
+          src={imgSrc}
+          onMouseEnter={() => {
+            setImgSrc(hoverImg);
+            setHover(true);
+          }}
+          onMouseLeave={() => {
+            setImgSrc(mainImg);
+            setHover(false);
+          }}
+          className={hover ? styles.hover : styles.product_img}
         />
       </Link>
       <div className={styles.productItemNav}>
