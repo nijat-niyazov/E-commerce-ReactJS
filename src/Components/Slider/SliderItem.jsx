@@ -11,7 +11,7 @@ function SliderItem({ name, img }) {
         alt={name}
         style={{
           cursor: 'pointer',
-          width: '1519px',
+          width: '1529px',
           height: '445.438px',
         }}
       />
